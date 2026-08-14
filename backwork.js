@@ -67,6 +67,7 @@ function setback() {
   console.log(localStorage.getItem("path"));
 }
 setback();
+console.log('here too');
 // async function accept() {
 //   let npc = true;
 //   console.log("tt");
