@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="black" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://raw.githubusercontent.com/brishanksingh7843-design/Logo/999ef212cba1572635b881694b1a7e765aeaf843/infinity.png"
+    />
+    <title>Sign Up</title>
+    <style>
+      body {
+        background: conic-gradient(
+          from var(--angle) at 50% 50%,
+          red,
+          rgb(0, 0, 0)
+        );
+        color: white;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        row-gap: 60px;
+        height: 100vh;
+        animation: 7s rotate linear 0.2s infinite;
+      }
+      /* @property --angle {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 0deg;
+      } */
+      @keyframes rotate {
+        from {
+          --angle: 0deg;
+        }
+        to {
+          --angle: 360deg;
+        }
+      }
+      h1 {
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        font-style: italic;
+        letter-spacing: 1px;
+        font-family: Helvetica;
+      }
+      h3 {
+        display: inline-block;
+        font-size: 25px;
+        font-weight: bold;
+      }
+      input {
+        border: none;
+        border-bottom: 5px dashed rgb(255, 255, 255);
+        font-weight: bold;
+        font-size: 20px;
+        width: 400px;
+        display: inline-block;
+        background: none;
+        color: white;
+        font-weight: bold;
+      }
+      input::placeholder {
+        color: rgb(0, 255, 234);
+      }
+      input:focus {
+        outline: none;
+        border-color: rgb(20, 149, 0);
+      }
+      button {
+        width: 250px;
+        height: 40px;
+        font-size: 15px;
+        font-weight: bold;
+        background: linear-gradient(to right, black, grey);
+        border: 2px solid cyan;
+        border-radius: 10px;
+        color: white;
+        transition: transform 0.3s;
+      }
+      button:active {
+        transform: scale(0.8);
+      }
+      button:hover {
+        border-color: rgb(157, 0, 175);
+      }
+      .block {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        z-index: 100;
+        backdrop-filter: blur(1px);
+        box-sizing: border-box;
+        height: 100vh;
+        width: 100vw;
+        animation: blurrr 3s ease-in-out infinite;
+        display: none;
+      }
+      @keyframes blurrr {
+        from,
+        30% {
+          backdrop-filter: blur(0.5px);
+        }
+        50% {
+          backdrop-filter: blur(5px);
+        }
+        70%,
+        to {
+          backdrop-filter: blur(0.5px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block"></div>
+    <h1>Sign Up</h1>
+    <div>
+      <h3>Full Name:</h3>
+      &nbsp;&nbsp;&nbsp;<input
+        class="name"
+        placeholder="Eg: Sumitranandan Sahu"
+      />
+    </div>
+    <div>
+      <h3>Username:</h3>
+      &nbsp;&nbsp;&nbsp;<input class="username" placeholder="Eg: scar@23@!" />
+    </div>
+    <div>
+      <h3>Description:</h3>
+      &nbsp;&nbsp;&nbsp;<input
+        class="description"
+        placeholder="Hobby, Likings, Favorite movie, etc."
+      />
+    </div>
+    <div class="request"><button>Request Login on this device!</button></div>
+    <div><h4 class="h4">- - -</h4></div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
+      import {
+        getDatabase,
+        set,
+        get,
+        ref,
+        update,
+        remove,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyB8rjh6NKrg4Yx3hRLvY9IoUFlKIpbl9vQ",
+        authDomain: "myhomepage-a903f.firebaseapp.com",
+        databaseURL:
+          "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "myhomepage-a903f",
+        storageBucket: "myhomepage-a903f.firebasestorage.app",
+        messagingSenderId: "147182994829",
+        appId: "1:147182994829:web:ed1ab09feb736c7683a9c4",
+        measurementId: "G-5KDSSM53B9",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getDatabase(
+        app,
+        "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      );
+      let button = document.querySelector(".request");
+      button.addEventListener("click", () => {
+        registering();
+      });
+      let namee = document.querySelector(".name");
+      let usernamee = document.querySelector(".username");
+      let descriptionn = document.querySelector(".description");
+      let writeup = document.querySelector(".h4");
+      let block = document.querySelector(".block");
+      async function registering() {
+        if (
+          namee.value == "" ||
+          usernamee.value == "" ||
+          descriptionn.value == ""
+        ) {
+          alert("Please Fill The Form first!");
+          return;
+        }
+        let path = ref(db, `MovieApp/Requests/${Date.now()}`);
+        set(path, {
+          name: namee.value,
+          username: usernamee.value,
+          description: descriptionn.value,
+        });
+        localStorage.setItem("upload", "sended");
+        check();
+        localStorage.setItem(
+          "data",
+          JSON.stringify({
+            name: namee.value,
+            username: usernamee.value,
+            description: descriptionn.value,
+          }),
+        );
+      }
+      let whattodo = true;
+      async function recheck() {
+        if (localStorage.getItem("upload") == "sended") {
+          let path = ref(db, "MovieApp/Requests/");
+          let data = await get(path);
+          data.forEach((child) => {
+            if (
+              child.val().name == JSON.parse(localStorage.getItem("data")).name
+            ) {
+              whattodo = false;
+            }
+          });
+          let path2 = ref(db, "MovieApp/Accepted/");
+          let data2 = await get(path2);
+          data2.forEach((child) => {
+            if (
+              child.val().name == JSON.parse(localStorage.getItem("data")).name
+            ) {
+              window.location.href = "index.html";
+              whattodo = false;
+            }
+          });
+          if (whattodo) {
+            localStorage.setItem("upload", "nothing");
+            localStorage.removeItem("data");
+          }
+        }
+      }
+      recheck();
+      // localStorage.removeItem("data");
+      // localStorage.removeItem("upload");
+      function check() {
+        if (localStorage.getItem("upload") == "sended") {
+          writeup.innerText =
+            "Request Sent! The account will be activated within 24 hrs.";
+          block.style.display = "block";
+        } else {
+          writeup.innerText = "Fill The form and Signup!";
+        }
+      }
+      check();
+      const savedData = JSON.parse(localStorage.getItem("data"));
+      if (savedData) {
+        namee.value = savedData.name || "";
+        usernamee.value = savedData.username || "";
+        descriptionn.value = savedData.description || "";
+      }
+      async function devices() {
+        let path = ref(db, "MovieApp/Devices/");
+        let number = await get(path);
+        number = number.val();
+        let dat = localStorage.getItem("device");
+        if (dat) {
+          console.log("already there");
+        } else {
+          localStorage.setItem("device", "now added you");
+          console.log(localStorage.getItem("device"));
+          number++;
+          set(path, number);
+        }
+      }
+      devices();
+    </script>
+  </body>
+</html>

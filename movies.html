@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="blue" />
+    <meta name="title" content="Movie" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://github.com/brishanksingh7843-design/Images/blob/main/slack.png?raw=true"
+    />
+    <title>Movies</title>
+    <style>
+      body {
+        background: radial-gradient(
+          ellipse closest-corner at 50% 35%,
+          rgb(83, 0, 0),
+          black
+        );
+        text-align: center;
+        width: 100vw;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        padding-top: 80px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+        /* this about thing works totally fine so use it */
+        user-select: none;
+      }
+      body::-webkit-scrollbar {
+        width: 5px;
+        height: 3px;
+        display: none;
+      }
+      body::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 1);
+      }
+      body::-webkit-scrollbar-thumb {
+        background: rgb(0, 119, 255);
+        border-radius: 1px;
+      }
+      .top-fixed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 75px;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        /* display: none; */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 40px;
+        box-sizing: border-box;
+      }
+      .page-name {
+        font-size: 35px;
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica;
+        font-style: italic;
+        font-weight: bold;
+        color: transparent;
+        background: linear-gradient(
+          to top right,
+          white,
+          white,
+          white,
+          white,
+          white,
+          rgb(0, 123, 255),
+          white,
+          white,
+          white,
+          white,
+          white
+        );
+        transform: skewX(-15deg);
+        background-clip: text;
+        -webkit-bacground-clip: text;
+        background-size: 500% 500%;
+        animation: pg-name-frame 5s linear infinite;
+      }
+      @keyframes pg-name-frame {
+        from {
+          background-position: 0% 50%;
+        }
+        to {
+          background-position: 100% 50%;
+        }
+      }
+      .page-name span {
+        color: rgb(255, 0, 0);
+        display: inline-block;
+        position: relative;
+      }
+      .page-name span::after {
+        content: "by Brishank Singh";
+        color: rgb(175, 175, 175);
+        font-size: 8px;
+        display: block;
+        position: absolute;
+        right: -20px;
+        margin-left: 0px;
+        transform: skewX(15deg) translateY(-3px);
+      }
+      ss-ss {
+        color: red;
+      }
+      ii-ii {
+        position: absolute;
+        color: black;
+        transform: rotate(45deg) scaleX(0.6) translateY(-5px) translateX(6.5px);
+      }
+      .space {
+        flex: 1;
+      }
+      .home,
+      .movies,
+      .series,
+      .latest,
+      .account {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-left: 15px;
+        margin-right: 15px;
+        font-weight: bold;
+        transition:
+          transform ease-in-out 0.3s,
+          color linear 0.3s;
+        text-underline-offset: 6px;
+      }
+      .home:hover,
+      .movies:hover,
+      .series:hover,
+      .latest:hover,
+      .account:hover {
+        transform: scale(1.1);
+        color: white;
+      }
+      .movi {
+        margin: 0;
+        padding: 0;
+        margin-top: 50px;
+        width: 100vw;
+        height: auto;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+      .movi-title {
+        color: white;
+        font-size: 25px;
+        text-align: left;
+        margin-left: 50px;
+        font-weight: bold;
+      }
+      .movi-contents {
+        margin: 0;
+        padding: 50px;
+        padding-top: 35px;
+        display: grid;
+        /* grid-template-columns: repeat(auto-fit, mimmax(150px, auto)); */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-auto-rows: minmax(250px, auto);
+        row-gap: 35px;
+        column-gap: 20px;
+        width: 100vw;
+        box-sizing: border-box;
+      }
+      .card-img-cov {
+        margin: 0;
+        padding: 0;
+        height: 80%;
+        border-radius: 10px;
+      }
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+      }
+      .card-bottom {
+        text-align: left;
+        height: 20%;
+        margin: 0;
+        padding: 0;
+        padding-left: 10px;
+        padding-top: 5px;
+        background: rgb(20, 20, 20);
+        border-radius: 0 0 10px 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 15px;
+        border-top: 1px solid rgb(92, 92, 92);
+        z-index: 100;
+      }
+      .card-bottom span {
+        display: block;
+        font-weight: lighter;
+        opacity: 0.7;
+        font-size: 8px;
+        margin-top: 4px;
+      }
+      .card {
+        backdrop-filter: blur(100px);
+        position: relative;
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        transition: transform ease-out 0.5s;
+        background: #3d3d3d;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+      }
+      .card:hover .card-img-cov {
+        transition: transform linear 1.5s;
+        transform: scale(1.1);
+      }
+      .playbtn {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #666666;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .playbtn::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 4px 0 4px 6px;
+        border-color: transparent transparent transparent #ffffff;
+        margin-left: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-fixed">
+      <div class="page-name">
+        <ii-ii>l</ii-ii><ss-ss>S</ss-ss>TR&#9776;AM <span>HUB</span>
+      </div>
+      <div class="space"></div>
+      <div class="home" onclick="Home()">HOME</div>
+      <div class="movies" onclick="Movies()">MOVIES</div>
+      <div class="series" onclick="Series()">SERIES</div>
+      <div class="latest" onclick="Latest()">LATEST</div>
+      <div class="account" onclick="Account()">ACCOUNT</div>
+    </div>
+    <!-- //////////////////////////////////////////////////// -->
+    <div class="movi">
+      <div class="movi-title">Movies</div>
+      <div class="movi-contents"></div>
+    </div>
+    <script>
+      const home = document.querySelector(".home");
+      const movies = document.querySelector(".movies");
+      const series = document.querySelector(".series");
+      const latest = document.querySelector(".latest");
+      const account = document.querySelector(".account");
+      function clepar() {
+        home.style.textDecoration = "none";
+        home.style.color = "rgba(255,255,255,0.5)";
+        movies.style.textDecoration = "none";
+        movies.style.color = "rgba(255,255,255,0.5)";
+        series.style.textDecoration = "none";
+        series.style.color = "rgba(255,255,255,0.5)";
+        latest.style.textDecoration = "none";
+        latest.style.color = "rgba(255,255,255,0.5)";
+        account.style.textDecoration = "none";
+        account.style.color = "rgba(255,255,255,0.5)";
+      }
+      function Home() {
+        clepar();
+        home.style.textDecoration = "underline";
+        home.style.color = "white";
+        home.style.textDecorationColor = "red";
+        window.location.href = "index.html";
+      }
+      function Movies() {
+        clepar();
+        movies.style.textDecoration = "underline";
+        movies.style.color = "white";
+        movies.style.textDecorationColor = "red";
+      }
+      Movies();
+      function Series() {
+        clepar();
+        series.style.textDecoration = "underline";
+        series.style.color = "white";
+        series.style.textDecorationColor = "red";
+        window.location.href = "series.html";
+      }
+      function Latest() {
+        clepar();
+        latest.style.textDecoration = "underline";
+        latest.style.color = "white";
+        latest.style.textDecorationColor = "red";
+        window.location.href = "latest.html";
+      }
+      function Account() {
+        clepar();
+        account.style.textDecoration = "unterline";
+        account.style.color = "white";
+        account.style.textDecoration = "red";
+        window.location.href = "account.html";
+      }
+    </script>
+    <script src="bworkmovies.js" type="module"></script>
+  </body>
+</html>

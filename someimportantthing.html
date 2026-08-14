@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
+        background: black;
+      }
+      .box {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+        /* dont use auto in about thing only 1fr for better results */
+        grid-auto-rows: minmax(500);
+        row-gap: 10px;
+        column-gap: 10px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .frame {
+        border: 1px solid white;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        aspect-ratio: 16 / 9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="frame">
+        <iframe
+          src="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          allowfullscreen
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="frame">
+        <iframe
+          src="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          allowfullscreen
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="frame">
+        <iframe
+          src="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          allowfullscreen
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="frame">
+        <iframe
+          src="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          allowfullscreen
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="frame">
+        <iframe
+          src="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          allowfullscreen
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="frame">
+        <iframe
+          src="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          allowfullscreen
+          frameborder="0"
+        ></iframe>
+      </div>
+    </div>
+    <script>
+      let pass = "";
+      let trying = true;
+      window.addEventListener("keydown", (e) => {
+        if (trying) {
+          if (e.key == "Backspace") pass = "";
+          else if (e.key == "Shift") pass = pass;
+          else if (e.key == "Enter") {
+            if (pass == "CheckMeOut!") {
+              trying = false;
+              // callback();
+              console.log("done");
+            }
+          } else {
+            pass += e.key;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

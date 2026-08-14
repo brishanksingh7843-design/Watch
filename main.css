@@ -1,0 +1,461 @@
+:root {
+  --a: 1;
+  --b: 0.4;
+  --c: 0.4;
+  --d: 0.4;
+  --animtim: 15s;
+  --theboxh: 300px;
+  --theboxw: 75vw;
+  --gosmall: 0.8;
+}
+/* 3. Bonus: Prevent Layout Shifts with scrollbar-gutter
+When dynamic content causes a scrollbar to suddenly appear, it can cause the webpage content to awkwardly jump. You can reserve space for it using scrollbar-gutter: */
+body {
+  background: radial-gradient(
+    ellipse closest-corner at 50% 35%,
+    rgb(83, 0, 0),
+    black
+  );
+  text-align: center;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  padding-top: 80px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  /* this about thing works totally fine so use it */
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+  display: none;
+}
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 1);
+}
+body::-webkit-scrollbar-thumb {
+  background: rgb(0, 119, 255);
+  border-radius: 1px;
+}
+.top-fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 75px;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  /* display: none; */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+.page-name {
+  font-size: 35px;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  font-style: italic;
+  font-weight: bold;
+  color: transparent;
+  background: linear-gradient(
+    to top right,
+    white,
+    white,
+    white,
+    white,
+    white,
+    rgb(0, 123, 255),
+    white,
+    white,
+    white,
+    white,
+    white
+  );
+  transform: skewX(-15deg);
+  background-clip: text;
+  -webkit-bacground-clip: text;
+  background-size: 500% 500%;
+  animation: pg-name-frame 5s linear infinite;
+}
+@keyframes pg-name-frame {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+.page-name span {
+  color: rgb(255, 0, 0);
+  display: inline-block;
+  position: relative;
+}
+.page-name span::after {
+  content: "by Brishank Singh";
+  color: rgb(175, 175, 175);
+  font-size: 8px;
+  display: block;
+  position: absolute;
+  right: -20px;
+  margin-left: 0px;
+  transform: skewX(15deg) translateY(-3px);
+}
+ss-ss {
+  color: red;
+}
+ii-ii {
+  position: absolute;
+  color: black;
+  transform: rotate(45deg) scaleX(0.6) translateY(-5px) translateX(6.5px);
+}
+.space {
+  flex: 1;
+}
+.home,
+.movies,
+.series,
+.latest,
+.account {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 15px;
+  margin-right: 15px;
+  font-weight: bold;
+  transition:
+    transform ease-in-out 0.3s,
+    color linear 0.3s;
+  text-underline-offset: 6px;
+}
+.home:hover,
+.movies:hover,
+.series:hover,
+.latest:hover,
+.account:hover {
+  transform: scale(1.1);
+  color: white;
+}
+.box-perspective {
+  position: relative;
+  perspective-origin: center;
+  perspective: 2000px;
+  width: 100vw;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+}
+.box-container {
+  transform-origin: center;
+  transform-style: preserve-3d;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: var(--theboxw);
+  height: var(--theboxh);
+  translate: calc(var(--theboxw) / 2 * -1) calc(var(--theboxh) / 2 * -1);
+  animation: theme-boxrotate var(--animtim) linear 0s infinite;
+}
+@keyframes theme-boxrotate {
+  /* Face 1 - Hold */
+  0%,
+  20% {
+    transform: rotateX(0deg) scale(1);
+  }
+  /* Transition 1 - Shrink mid-rotation */
+  22.5% {
+    transform: rotateX(45deg) scale(var(--gosmall));
+  }
+  /* Face 2 - Hold */
+  25%,
+  45% {
+    transform: rotateX(90deg) scale(1);
+  }
+  /* Transition 2 - Shrink mid-rotation */
+  47.5% {
+    transform: rotateX(135deg) scale(var(--gosmall));
+  }
+  /* Face 3 - Hold */
+  50%,
+  70% {
+    transform: rotateX(180deg) scale(1);
+  }
+  /* Transition 3 - Shrink mid-rotation */
+  72.5% {
+    transform: rotateX(225deg) scale(var(--gosmall));
+  }
+  /* Face 4 - Hold */
+  75%,
+  95% {
+    transform: rotateX(270deg) scale(1);
+  }
+  /* Transition 4 - Shrink mid-rotation */
+  97.5% {
+    transform: rotateX(315deg) scale(var(--gosmall));
+  }
+  /* Complete Loop */
+  100% {
+    transform: rotateX(360deg) scale(1);
+  }
+}
+@keyframes theme-box-rotate {
+  0%,
+  20% {
+    transform: rotateX(0deg);
+  }
+  25%,
+  45% {
+    transform: rotateX(90deg);
+  }
+  50%,
+  70% {
+    transform: rotateX(180deg);
+  }
+  75%,
+  95% {
+    transform: rotateX(270deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+.box-container div {
+  text-align: left;
+  width: var(--theboxw);
+  height: var(--theboxh);
+  position: absolute;
+  border-radius: 7px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.box-container div img {
+  height: var(--theboxh);
+  width: var(--theboxw);
+  object-fit: cover;
+  /* position:absolute; */
+}
+.theme1 {
+  transform: translateZ(calc(var(--theboxh) / 2));
+}
+.theme2 {
+  transform: translateZ(calc(var(--theboxh) / 2 * -1)) rotateZ(180deg)
+    rotateY(180deg);
+}
+.theme3 {
+  transform: rotateX(90deg) translateZ(calc(var(--theboxh) / 2));
+}
+.theme4 {
+  transform: rotateX(270deg) translateZ(calc(var(--theboxh) / 2));
+}
+.theme-lines {
+  user-select: none;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  font-size: 2px;
+  text-align: center;
+  display: inline-block;
+  /* transform: scaleX(2.5) scaleY(2); */
+  animation: var(--animtim) lines linear 1.5s infinite;
+  color: transparent;
+  transform: scaleY(0.7);
+  letter-spacing: 20px;
+}
+.line1 {
+  opacity: var(--a);
+  background: white;
+  border-radius: 200px;
+  padding: 0;
+}
+.line2 {
+  opacity: var(--b);
+  background: white;
+  border-radius: 200px;
+  padding: 0;
+}
+.line3 {
+  opacity: var(--c);
+  background: white;
+  border-radius: 200px;
+  padding: 0;
+}
+.line4 {
+  opacity: var(--d);
+  background: white;
+  border-radius: 200px;
+  padding: 0;
+}
+@keyframes lines {
+  25% {
+    --a: 0.3;
+    --c: 0.3;
+    --d: 0.3;
+    --b: 1;
+  }
+  50% {
+    --a: 0.3;
+    --b: 0.3;
+    --d: 0.3;
+    --c: 1;
+  }
+  75% {
+    --a: 0.3;
+    --b: 0.3;
+    --c: 0.3;
+    --d: 1;
+  }
+  100% {
+    --c: 0.3;
+    --b: 0.3;
+    --d: 0.3;
+    --a: 1;
+  }
+}
+.themNames {
+  color: white;
+  font-size: 20px;
+  width: 100vw;
+  z-index: 15;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 0;
+  padding-top: 12%;
+  padding-left: 6%;
+  box-sizing: border-box;
+  background: linear-gradient(to left, transparent 50%, black);
+}
+.themNames span {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 16px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.themNames button {
+  color: white;
+  display: block;
+  border-radius: 1000px;
+  font-size: 15px;
+  border: none;
+  padding: 15px;
+  background: rgba(44, 44, 44, 0.8);
+  letter-spacing: 1px;
+}
+.themName button:hover {
+  background: black;
+  color: blue;
+}
+.trending {
+  margin: 0;
+  padding: 0;
+  margin-top: 50px;
+  width: 100vw;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.trending-title {
+  color: white;
+  font-size: 25px;
+  text-align: left;
+  margin-left: 50px;
+  font-weight: bold;
+}
+.trending-contents {
+  margin: 0;
+  padding: 40px;
+  padding-top: 25px;
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, mimmax(150px, auto)); */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: minmax(250px, auto);
+  row-gap: 30px;
+  column-gap: 20px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+.card-img-cov {
+  margin: 0;
+  padding: 0;
+  height: 80%;
+  border-radius: 10px;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+.card-bottom {
+  text-align: left;
+  height: 20%;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+  padding-top: 5px;
+  background: rgb(20, 20, 20);
+  border-radius: 0 0 10px 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  border-top: 1px solid rgb(92, 92, 92);
+  z-index: 100;
+}
+.card-bottom span {
+  display: block;
+  font-weight: lighter;
+  opacity: 0.7;
+  font-size: 8px;
+  margin-top: 4px;
+}
+.card {
+  backdrop-filter: blur(100px);
+  position: relative;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform ease-out 0.5s;
+  background: #3d3d3d;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+.card:hover .card-img-cov {
+  transition: transform linear 1.5s;
+  transform: scale(1.1);
+}
+.playbtn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #666666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.playbtn::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 0 4px 6px;
+  border-color: transparent transparent transparent #ffffff;
+  margin-left: 2px;
+}
+/* auto-fit	Stretches the existing items so they expand across the full width.
+auto-fill	Keeps empty hidden column tracks open, so items keep their fixed width rather than stretching. */

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="black" />
+    <meta name="title" content="Movies" />
+    <meta name="description" content="Stream Free Movies" />
+    <meta property="og:title" content="Movies" />
+    <meta property="og:description" content="Free Watch" />
+    <meta property="og:image" content="" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://github.com/brishanksingh7843-design/Images/blob/main/slack.png?raw=true"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Movies</title>
+  </head>
+  <body>
+    <div class="top-fixed">
+      <div class="page-name">
+        <ii-ii>l</ii-ii><ss-ss>S</ss-ss>TR&#9776;AM <span>HUB</span>
+      </div>
+      <div class="space"></div>
+      <div class="home" onclick="Home()">HOME</div>
+      <div class="movies" onclick="Movies()">MOVIES</div>
+      <div class="series" onclick="Series()">SERIES</div>
+      <div class="latest" onclick="Latest()">LATEST</div>
+      <div class="account" onclick="Account()">ACCOUNT</div>
+    </div>
+    <div class="box-perspective">
+      <div class="box-container">
+        <div class="theme1">
+          <div class="themNames">
+            NOW STREAMING:<br /><span>The Grave of the Fireflies</span>
+          </div>
+          <img src="flies-wallpaper.png" />
+        </div>
+        <div class="theme2">
+          <div class="themNames">
+            NOW STREAMING:<br /><span>Vinland Saga</span>
+          </div>
+          <img src="vinland-wallpaper.png" />
+        </div>
+        <div class="theme3">
+          <div class="themNames">
+            NOW STREAMING:<br /><span>Hajime No Ippo</span>
+          </div>
+          <img src="hajime-wallpaper.jpg" />
+        </div>
+        <div class="theme4">
+          <div class="themNames">
+            NOW STREAMING:<br /><span>Death Note</span>
+          </div>
+          <img src="death-wallpaper.png" />
+        </div>
+      </div>
+    </div>
+    <div class="theme-lines">
+      <span class="line1">--</span>
+      <span class="line2">--</span>
+      <span class="line3">--</span>
+      <span class="line4">--</span>
+    </div>
+    <div class="trending">
+      <div class="trending-title">Trending</div>
+      <div class="trending-contents"></div>
+    </div>
+    <script src="main.js"></script>
+    <script src="backwork.js" type="module"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js");
+        });
+      }
+    </script>
+  </body>
+</html>

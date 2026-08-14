@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="blue" />
+    <meta name="title" content="Movie" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://github.com/brishanksingh7843-design/Images/blob/main/slack.png?raw=true"
+    />
+    <title>Movies</title>
+    <style>
+      body {
+        background: radial-gradient(
+          ellipse closest-corner at 50% 35%,
+          rgb(83, 0, 0),
+          black
+        );
+        text-align: center;
+        width: 100vw;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        padding-top: 80px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+        /* this about thing works totally fine so use it */
+        user-select: none;
+      }
+      body::-webkit-scrollbar {
+        width: 5px;
+        height: 3px;
+        display: none;
+      }
+      body::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 1);
+      }
+      body::-webkit-scrollbar-thumb {
+        background: rgb(0, 119, 255);
+        border-radius: 1px;
+      }
+      .top-fixed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 75px;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        /* display: none; */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 40px;
+        box-sizing: border-box;
+      }
+      .page-name {
+        font-size: 35px;
+        margin: 0;
+        padding: 0;
+        font-family: Helvetica;
+        font-style: italic;
+        font-weight: bold;
+        color: transparent;
+        background: linear-gradient(
+          to top right,
+          white,
+          white,
+          white,
+          white,
+          white,
+          rgb(0, 123, 255),
+          white,
+          white,
+          white,
+          white,
+          white
+        );
+        transform: skewX(-15deg);
+        background-clip: text;
+        -webkit-bacground-clip: text;
+        background-size: 500% 500%;
+        animation: pg-name-frame 5s linear infinite;
+      }
+      @keyframes pg-name-frame {
+        from {
+          background-position: 0% 50%;
+        }
+        to {
+          background-position: 100% 50%;
+        }
+      }
+      .page-name span {
+        color: rgb(255, 0, 0);
+        display: inline-block;
+        position: relative;
+      }
+      .page-name span::after {
+        content: "by Brishank Singh";
+        color: rgb(175, 175, 175);
+        font-size: 8px;
+        display: block;
+        position: absolute;
+        right: -20px;
+        margin-left: 0px;
+        transform: skewX(15deg) translateY(-3px);
+      }
+      ss-ss {
+        color: red;
+      }
+      ii-ii {
+        position: absolute;
+        color: black;
+        transform: rotate(45deg) scaleX(0.6) translateY(-5px) translateX(6.5px);
+      }
+      .space {
+        flex: 1;
+      }
+      .home,
+      .movies,
+      .series,
+      .latest,
+      .account {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-left: 15px;
+        margin-right: 15px;
+        font-weight: bold;
+        transition:
+          transform ease-in-out 0.3s,
+          color linear 0.3s;
+        text-underline-offset: 6px;
+      }
+      .home:hover,
+      .movies:hover,
+      .series:hover,
+      .latest:hover,
+      .account:hover {
+        transform: scale(1.1);
+        color: white;
+      }
+      .box {
+        border: 1px solid grey;
+        width: 90vw;
+        margin: 5vw;
+        margin-top: 0;
+        height: 150px;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      .everything {
+        text-align: left;
+      }
+      h1 {
+        margin-left: 40px;
+      }
+      h2 {
+        margin-left: 60px;
+      }
+      h3 {
+        margin-left: 90px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-fixed">
+      <div class="page-name">
+        <ii-ii>l</ii-ii><ss-ss>S</ss-ss>TR&#9776;AM <span>HUB</span>
+      </div>
+      <div class="space"></div>
+      <div class="home" onclick="Home()">HOME</div>
+      <div class="movies" onclick="Movies()">MOVIES</div>
+      <div class="series" onclick="Series()">SERIES</div>
+      <div class="latest" onclick="Latest()">LATEST</div>
+      <div class="account" onclick="Account()">ACCOUNT</div>
+    </div>
+    <div class="everything">
+      <h1 style="color: white"></h1>
+      <h2 style="color: cyan"></h2>
+      <h3 style="color: crimson"></h3>
+      <div class="box" ;>
+        <h4 style="color: white">Local Chatbox for users comming soon!</h4>
+      </div>
+    </div>
+    <script>
+      document.querySelector(".everything h1").innerText = JSON.parse(
+        localStorage.getItem("data"),
+      ).name;
+      document.querySelector(".everything h2").innerText = JSON.parse(
+        localStorage.getItem("data"),
+      ).username;
+      document.querySelector(".everything h3").innerText = JSON.parse(
+        localStorage.getItem("data"),
+      ).description;
+      const home = document.querySelector(".home");
+      const movies = document.querySelector(".movies");
+      const series = document.querySelector(".series");
+      const latest = document.querySelector(".latest");
+      const account = document.querySelector(".account");
+      function clepar() {
+        home.style.textDecoration = "none";
+        home.style.color = "rgba(255,255,255,0.5)";
+        movies.style.textDecoration = "none";
+        movies.style.color = "rgba(255,255,255,0.5)";
+        series.style.textDecoration = "none";
+        series.style.color = "rgba(255,255,255,0.5)";
+        latest.style.textDecoration = "none";
+        latest.style.color = "rgba(255,255,255,0.5)";
+        account.style.textDecoration = "none";
+        account.style.color = "rgba(255,255,255,0.5)";
+      }
+      function Home() {
+        clepar();
+        home.style.textDecoration = "underline";
+        home.style.color = "white";
+        home.style.textDecorationColor = "red";
+        window.location.href = "index.html";
+      }
+      function Movies() {
+        clepar();
+        movies.style.textDecoration = "underline";
+        movies.style.color = "white";
+        movies.style.textDecorationColor = "red";
+        window.location.href = "movies.html";
+      }
+      function Series() {
+        clepar();
+        series.style.textDecoration = "underline";
+        series.style.color = "white";
+        series.style.textDecorationColor = "red";
+        window.location.href = "series.html";
+      }
+      function Latest() {
+        clepar();
+        latest.style.textDecoration = "underline";
+        latest.style.color = "white";
+        latest.style.textDecorationColor = "red";
+        window.location.href = "latest.html";
+      }
+      function Account() {
+        clepar();
+        account.style.textDecoration = "unterline";
+        account.style.color = "white";
+        account.style.textDecoration = "red";
+      }
+      Account();
+    </script>
+    <script src="account.js" type="module"></script>
+  </body>
+</html>

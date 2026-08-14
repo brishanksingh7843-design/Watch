@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Threater" />
+    <meta name="description" content="Watch it!" />
+    <meta name="theme-color" content="black" />
+    <meta property="og:title" content="Threater" />
+    <meta property="og:description" content="Free Watch!" />
+    <meta propert="og:image" content="" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://github.com/brishanksingh7843-design/Logo/blob/main/logo.png?raw=true"
+    />
+    <title>Threater</title>
+    <style>
+      body {
+        background: black;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+      }
+      .box {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+        position: relative;
+        user-select: none;
+      }
+      .box::-webkit-scrollbar {
+        /* height:5px; */
+        display: none;
+        width: 0.4vw;
+        background: transparent;
+      }
+      .box::-webkit-scrollbar-background {
+        color: red;
+      }
+      .box::-webkit-scrollbar-thumb {
+        /* color:red; */
+        background: red;
+        border-radius: 100px;
+      }
+      .frame {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        border-bottom: 1px solid white;
+      }
+      .actions {
+        height: 10vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: rgba(255, 78, 78, 0.627);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        z-index: 3;
+      }
+      .actions:hover {
+        transition: scale(0.8);
+      }
+      iframe {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="frame">
+        <iframe
+          src="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          allowfullscreen
+          id="ifram"
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="actions" tabindex="0">---EXIT---</div>
+    </div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
+      import {
+        getDatabase,
+        set,
+        get,
+        ref,
+        update,
+        remove,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyB8rjh6NKrg4Yx3hRLvY9IoUFlKIpbl9vQ",
+        authDomain: "myhomepage-a903f.firebaseapp.com",
+        databaseURL:
+          "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "myhomepage-a903f",
+        storageBucket: "myhomepage-a903f.firebasestorage.app",
+        messagingSenderId: "147182994829",
+        appId: "1:147182994829:web:ed1ab09feb736c7683a9c4",
+        measurementId: "G-5KDSSM53B9",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getDatabase(
+        app,
+        "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      );
+      let loco = document.querySelector(".actions");
+      loco.addEventListener("click", async () => {
+        console.log("clicked");
+        let backval = localStorage.getItem("path");
+        if (backval == "main") window.location.href = "index.html";
+        else if (backval == "movies") window.location.href = "movies.html";
+        else if (backval == "latest") window.location.href = "latest.html";
+        else if (backval == "series") window.location.href = "series.html";
+      });
+    </script>
+  </body>
+</html>

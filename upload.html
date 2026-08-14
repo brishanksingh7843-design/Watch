@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="red" />
+    <meta name="title" content="Upload" />
+    <meta name="description" content="upload your movies!" />
+    <title>Upload</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://github.com/brishanksingh7843-design/Images/blob/main/meta.png?raw=true"
+    />
+    <style>
+      :root {
+        --mov: "white";
+        --ser: "white";
+        --lat: "white";
+        --tre: "white";
+      }
+      body {
+        background: black;
+        color: white;
+        margin: 0;
+        padding: 0;
+        padding-top: 80px;
+      }
+      .flex {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 35px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+        background: black;
+        z-index: 4;
+      }
+      .flex div {
+        border: 1px solid white;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-size: 15px;
+        font-weight: bold;
+        transition:
+          border-color 0.3s,
+          color 0.3s,
+          transform 0.3s;
+      }
+      .flex div:focus {
+        border-color: red;
+        color: red;
+      }
+      .flex div:hover {
+        transform: scale(0.9);
+      }
+      .description {
+        display: grid;
+        /* grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-auto-rows: minmax(200px, auto); */
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(50px, auto);
+        box-sizing: border-box;
+        margin: 0;
+        padding: 10px;
+        row-gap: 15px;
+      }
+      .description div div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      input {
+        background: cadetblue;
+        margin-top: 8px;
+        border: none;
+        border-radius: 5px;
+        height: 15px;
+        width: 200px;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+      input:focus {
+        outline: 2px solid rgb(0, 136, 255);
+        outline-offset: 1px;
+      }
+      button {
+        background: burlywood;
+        border: none;
+        border-radius: 5px;
+        aspect-ratio: 2/1;
+        width: 45px;
+        font-weight: bold;
+        font-size: 11px;
+        color: rgb(64, 0, 255);
+        transition: transform 0.2s;
+      }
+      button:hover {
+        transform: scale(0.9);
+      }
+      button:active {
+        transform: translateY(-5px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="movie" tabindex="0" data-name="movie">Movie</div>
+      <div class="series" tabindex="0" data-name="series">Series</div>
+      <div class="latest" tabindex="0" data-name="latest">Latest</div>
+      <div class="trending" tabindex="0" data-name="trending">Trending</div>
+    </div>
+    <div class="description">
+      <div>
+        <div>Title</div>
+        <div><input class="title" /></div>
+      </div>
+      <div>
+        <div>Type</div>
+        <div><input class="type" /></div>
+      </div>
+      <div>
+        <div>Release Date</div>
+        <div><input class="release" /></div>
+      </div>
+      <div>
+        <div>Add Image Url</div>
+        <div><input class="imageurl" /></div>
+      </div>
+      <div>
+        <div>Add Page Url</div>
+        <div><input class="pageurl" /></div>
+      </div>
+      <div>
+        <div><button>Enter</button></div>
+      </div>
+    </div>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
+      import {
+        getDatabase,
+        set,
+        update,
+        remove,
+        onValue,
+        get,
+        ref,
+      } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyB8rjh6NKrg4Yx3hRLvY9IoUFlKIpbl9vQ",
+        authDomain: "myhomepage-a903f.firebaseapp.com",
+        databaseURL:
+          "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "myhomepage-a903f",
+        storageBucket: "myhomepage-a903f.firebasestorage.app",
+        messagingSenderId: "147182994829",
+        appId: "1:147182994829:web:ed1ab09feb736c7683a9c4",
+        measurementId: "G-5KDSSM53B9",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getDatabase(
+        app,
+        "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app/",
+      );
+      let content = "";
+      const flex = document.querySelector(".flex");
+      flex.addEventListener("click", (e) => {
+        // console.log(e.target.className);
+        let cc = e.target.closest("[data-name]");
+        // console.log(cc.dataset.name);
+        content = cc.dataset.name;
+      });
+      const ti = document.querySelector(".title");
+      const ty = document.querySelector(".type");
+      const re = document.querySelector(".release");
+      const pa = document.querySelector(".pageurl");
+      const im = document.querySelector(".imageurl");
+      const key = document.querySelector("button");
+      function addition() {
+        let path = "";
+        if (content == "movie") {
+          path = ref(db, `MovieApp/Movie/${Date.now()}`);
+        } else if (content == "series") {
+          path = ref(db, `MovieApp/Series/${Date.now()}`);
+        } else if (content == "latest") {
+          path = ref(db, `MovieApp/Latest/${Date.now()}`);
+        } else if (content == "trending") {
+          path = ref(db, `MovieApp/Trending/${Date.now()}`);
+        } else {
+          path = ref(db, "Null/");
+        }
+        if (
+          ti.value == "" ||
+          ty.value == "" ||
+          re.value == "" ||
+          pa.value == "" ||
+          im.value == "" ||
+          content == ""
+        ) {
+          alert("Fill the Form Please!");
+          return;
+        }
+        set(path, {
+          title: ti.value,
+          type: ty.value,
+          release: re.value,
+          pageurl: pa.value,
+          imageurl: im.value,
+        });
+        ti.value = "";
+        ty.value = "";
+        re.value = "";
+        pa.value = "";
+        im.value = "";
+        content = "";
+      }
+      key.addEventListener("click", (e) => {
+        addition();
+      });
+    </script>
+  </body>
+</html>
