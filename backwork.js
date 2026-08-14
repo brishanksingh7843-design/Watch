@@ -67,27 +67,27 @@ function setback() {
   console.log(localStorage.getItem("path"));
 }
 setback();
-async function accept() {
-  let npc = true;
-  console.log("tt");
-  try {
-    let path = ref(db, "MovieApp/Accepted/");
-    let data = await get(path);
-    data.forEach((da) => {
-      if (da.val().name == JSON.parse(localStorage.getItem("data")).name) {
-        console.log("confirmed" + da.val().name);
-        npc = false;
-      } else {
-        window.location.href = "signuppg.html";
-      }
-    });
-    if (npc) {
-      window.location.href = "signuppg.html";
-    }
-  } catch (error) {
-    console.log("something wrong!");
-    window.location.href = "signuppg.html";
-  }
-}
-accept();
-let visits = JSON.parse(localStorage.getItem("visits")) || 0;
+// async function accept() {
+//   let npc = true;
+//   console.log("tt");
+//   try {
+//     let path = ref(db, "MovieApp/Accepted/");
+//     let data = await get(path);
+//     data.forEach((da) => {
+//       if (da.val().name == JSON.parse(localStorage.getItem("data")).name) {
+//         console.log("confirmed" + da.val().name);
+//         npc = false;
+//       } else {
+//         window.location.href = "signuppg.html";
+//       }
+//     });
+//     if (npc) {
+//       window.location.href = "signuppg.html";
+//     }
+//   } catch (error) {
+//     console.log("something wrong!");
+//     window.location.href = "signuppg.html";
+//   }
+// }
+// accept();
+// let visits = JSON.parse(localStorage.getItem("visits")) || 0;
