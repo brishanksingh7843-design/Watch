@@ -179,23 +179,14 @@
       <div class="account" onclick="Account()">ACCOUNT</div>
     </div>
     <div class="everything">
-      <h1 style="color: white"></h1>
-      <h2 style="color: cyan"></h2>
-      <h3 style="color: crimson"></h3>
+      <h1 style="color: white">Hello Everyone</h1>
+      <h2 style="color: cyan">Myself Brishank</h2>
+      <h3 style="color: crimson">This website is created by me!</h3>
       <div class="box" ;>
         <h4 style="color: white">Local Chatbox for users comming soon!</h4>
       </div>
     </div>
     <script>
-      document.querySelector(".everything h1").innerText = JSON.parse(
-        localStorage.getItem("data"),
-      ).name;
-      document.querySelector(".everything h2").innerText = JSON.parse(
-        localStorage.getItem("data"),
-      ).username;
-      document.querySelector(".everything h3").innerText = JSON.parse(
-        localStorage.getItem("data"),
-      ).description;
       const home = document.querySelector(".home");
       const movies = document.querySelector(".movies");
       const series = document.querySelector(".series");
