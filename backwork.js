@@ -54,11 +54,13 @@ if (waki) {
           localStorage.setItem("yestrue", "true");
           localStorage.setItem("YOURKEY", `${damm.key}`);
         } else {
+          localStorage.removeItem('yestrue');
           document.querySelector(".haha").innerHTML =
             "Maybe You have not created an account yet or <br>Maybe You have not been confirmed by the creator!";
         }
       });
     } else {
+      localStorage.removeItem('yestrue');
       document.querySelector(".haha").innerHTML =
         "Maybe You have not created an account yet or<br> Maybe You have not been confirmed by the creator yet!";
     }
