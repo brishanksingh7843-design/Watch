@@ -34,38 +34,7 @@ const db = getDatabase(
   app,
   "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app/",
 );
-let gmail = document.querySelector(".email");
-let password = document.querySelector(".password");
-let button = document.querySelector(".bttn");
-let waki = localStorage.getItem("yestrue");
-if (waki) {
-  console.log("you happy");
-  document.querySelector(".timitimi").style.display = "none";
-} else {
-  button.addEventListener("click", async () => {
-    console.log("button");
-    let path = ref(db, "Account/Selected/");
-    let daam = await get(path);
-    if (daam.exists()) {
-      daam.forEach((damm) => {
-        let coke = damm.val();
-        if (coke.email == gmail.value && coke.password == password.value) {
-          document.querySelector(".timitimi").style.display = "none";
-          localStorage.setItem("yestrue", "true");
-          localStorage.setItem("YOURKEY", `${damm.key}`);
-        } else {
-          localStorage.removeItem('yestrue');
-          document.querySelector(".haha").innerHTML =
-            "Maybe You have not created an account yet or <br>Maybe You have not been confirmed by the creator!";
-        }
-      });
-    } else {
-      localStorage.removeItem('yestrue');
-      document.querySelector(".haha").innerHTML =
-        "Maybe You have not created an account yet or<br> Maybe You have not been confirmed by the creator yet!";
-    }
-  });
-}
+
 const pll = document.querySelector(".trending-contents");
 async function getData() {
   let htmldata = "";
