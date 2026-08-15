@@ -457,5 +457,17 @@ ii-ii {
   border-color: transparent transparent transparent #ffffff;
   margin-left: 2px;
 }
+.timitimi{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:50;
+  background:white;
+  display:flex;
+  flex-direction:column;
+  row-gap:40px;
+}
 /* auto-fit	Stretches the existing items so they expand across the full width.
 auto-fill	Keeps empty hidden column tracks open, so items keep their fixed width rather than stretching. */
