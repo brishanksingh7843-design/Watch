@@ -3,87 +3,256 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Threater" />
-    <meta name="description" content="Watch it!" />
     <meta name="theme-color" content="black" />
-    <meta property="og:title" content="Threater" />
-    <meta property="og:description" content="Free Watch!" />
-    <meta propert="og:image" content="" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://github.com/brishanksingh7843-design/Logo/blob/main/logo.png?raw=true"
-    />
+    <link rel="icon" type="image/png" href="https://github.com/brishanksingh7843-design/Logo/blob/main/logo.png?raw=true" />
     <title>Threater</title>
     <style>
-      body {
-        background: black;
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        width: 100vw;
+      :root {
+        --Rich-Charcoal: #121212;
+        --Deep-Midnight-Blue: #0a0e17;
+        --Obsidian-Slate: #18181c;
+        --Dark-Cinema-Purple: #18181c;
       }
-      .box {
+      body {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        width: 100%;
         height: 100vh;
-        width: 100vw;
-        overflow-x: hidden;
-        overflow-y: auto;
-        scrollbar-gutter: stable;
-        position: relative;
+        background: var(--Deep-Midnight-Blue);
+        color: white;
         user-select: none;
       }
-      .box::-webkit-scrollbar {
-        /* height:5px; */
+      .top {
+        height: 130px;
+        /* border: 1px solid black; */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scrollbar-gutter: stable;
+        background: url("hajime-wallpaper.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .top-top {
+        display: flex;
+        justify-content: space-between;
+        /* border:1px solid black; */
+        padding: 0;
+        margin: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 35px;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        font-weight: bold;
+      }
+      .top-top button {
+        font-weight: bold;
+        background: rgb(0, 0, 181);
+        padding: 4px;
+        border: 1px solid rgb(206, 206, 206);
+        border-radius: 7px;
+        color: white;
+      }
+      .top-top button:hover {
+        transform: scale(0.9);
+      }
+      .top-title {
+        font-size: 21px;
+        /* width: 100%; */
+        text-shadow: 0 0 10px black;
+        margin: 0;
+        padding: 0;
+        padding-top: 10px;
+        padding-left: 15px;
+        box-sizing: border-box;
+        font-weight: bold;
+      }
+      .top-description {
+        /* width: 100%; */
+        font-size: 10px;
+        margin: 0;
+        padding: 0;
+        padding-top: 10px;
+        padding-left: 25px;
+        text-shadow: 0 0 10px black;
+        color: rgb(236, 236, 236);
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-gutter: stable;
+        letter-spacing: 1px;
+        font-weight: bold;
+      }
+      .season-block {
+        width: 100%;
+        height: 30px;
+        margin: 0;
+        padding: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        column-gap: 10px;
+        user-select: none;
+        cursor: pointer;
+        overflow: hidden;
+        /* border:1px solid black; */
+      }
+      .season-block div {
+        font-size: 12px;
+        flex: 1;
+        display: flex;
+        align-content: center;
+        margin: 0;
+        padding: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border-bottom: 2px solid transparent;
+      }
+      #s1 {
+        border-bottom: 2px solid red;
+      }
+      .content {
+        margin: 0;
+        padding: 0px;
+        padding-top: 5px;
+        width: calc(100% - 5px);
+        min-height: calc(calc(100vh / 2.5) - 5px);
+        max-height: calc(100vh - 160px);
+        /* border: 1px solid white; */
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .content div {
+        margin: 0;
+        padding: 15px;
+        /* width: 100vw; */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+      }
+      .content div nav {
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        font-size: 10px;
+        border-radius: 10px;
+        border: 1px solid rgb(128, 128, 128);
+        font-family: Georgia;
+        font-weight: bold;
+        letter-spacing: 1px;
+        position: relative;
+        position: relative;
+        transition: transform 0.2s;
+      }
+      nav button {
+        position: absolute;
+        right: 10px;
+        background: var(--Rich-Charcoal);
+        border: none;
+        color: rgb(255, 0, 0);
+        font-weight: bold;
+        border-radius: 8px;
+        /* height: 20px; */
+        transform: translateY(-10%);
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+      nav:hover button {
+        color: white;
+      }
+      nav:hover {
+        transform: translateX(6px);
+      }
+      nav:active {
+        transform: scale(0.9);
+      }
+      nav span {
+        color: red;
+        text-shadow: 0 0 10px red;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-family: impact;
+      }
+      .content::-webkit-scrollbar {
+        width: 5px;
+      }
+      .content::-webkit-scrollbar-button {
         display: none;
-        width: 0.4vw;
+      }
+      .content::-webkit-scrollbar-track {
+        color: transparent;
         background: transparent;
       }
-      .box::-webkit-scrollbar-background {
-        color: red;
+      /* .content::-webkit-scrollbar-track-piece {} */
+      .content::-webkit-scrollbar-thumb {
+        /* color:red; */
+        border-radius: 3px;
+        background: red;
+      }
+      .content::-webkit-scrollbar-thumb:hover {
+        background: rgb(255, 220, 220);
+      }
+      .box {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        z-index: 50;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+        display: none;
+      }
+      .box::-webkit-scrollbar {
+        width: 1px;
+        display: none;
+      }
+      .box::-webkit-scrollbar-track {
+        background: black;
       }
       .box::-webkit-scrollbar-thumb {
-        /* color:red; */
         background: red;
-        border-radius: 100px;
-      }
-      .frame {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
-        border-bottom: 1px solid white;
-      }
-      .actions {
-        height: 10vh;
-        width: 100vw;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background: rgba(255, 78, 78, 0.627);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-        z-index: 3;
-      }
-      .actions:hover {
-        transition: scale(0.8);
       }
       iframe {
         width: 100vw;
         height: 100vh;
-        border: none;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
+        border: none;
+      }
+      .actions {
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(188, 0, 0);
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        letter-spacing: 2px;
+      }
+      .abcd {
+        display: block;
+      }
+      .help {
+        width: 100vw;
       }
     </style>
   </head>
@@ -91,7 +260,7 @@
     <div class="box">
       <div class="frame">
         <iframe
-          src="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/"
+          src="https://drive.google.com/file/d/1JkzqSbLKL65i8FdF0k-1-ogekDfsPLKX/"
           width="100%"
           height="100%"
           allow="autoplay"
@@ -100,55 +269,1003 @@
           frameborder="0"
         ></iframe>
       </div>
-      <div class="actions" tabindex="0">---EXIT---</div>
+      <div class="help">---</div>
+      <div class="actions" tabindex="0">EXIT</div>
     </div>
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
-      import {
-        getDatabase,
-        set,
-        get,
-        ref,
-        update,
-        remove,
-        onValue,
-      } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-database.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+    <!-- ///////////////////////////////////////////////////////// -->
+    <div class="abcd">
+      <!-- //////////////////////////////////////////////////////////////////// -->
+      <div class="top">
+        <div class="top-top">
+          <p><span style="color: red">STREAM </span> HUB</p>
+          <button>&nbsp; BACK &nbsp;</button>
+        </div>
+        <!-- Title -->
+        <div class="top-title">Hajime No Ippo</div>
+        <!-- Description -->
+        <div class="top-description">
+          ppo, a teenage boy with a pure heart and unrelenting determination,
+          discovers a passion for boxing after veteran fighter Takamura saves
+          him from bullies.
+        </div>
+      </div>
+      <!-- //////////////////////////////////////////////////////////////////////// -->
+      <div class="season-block">
+        <!-- Seasons -->
+        <div id="s1">Season 1</div>
+        <div id="s2">Season 2</div>
+        <div id="s3">Season 3</div>
+      </div>
+      <!-- //////////////////////////////////////////////////////////////////////// -->
 
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyB8rjh6NKrg4Yx3hRLvY9IoUFlKIpbl9vQ",
-        authDomain: "myhomepage-a903f.firebaseapp.com",
-        databaseURL:
-          "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "myhomepage-a903f",
-        storageBucket: "myhomepage-a903f.firebasestorage.app",
-        messagingSenderId: "147182994829",
-        appId: "1:147182994829:web:ed1ab09feb736c7683a9c4",
-        measurementId: "G-5KDSSM53B9",
-      };
+      <!-- /////////////////////////////////////////////////////////////////////// -->
+      <div class="content">
+        <div id="s1s1">
+          <nav
+            data-link="https://drive.google.com/file/d/1OHXMy4JBP1pZM0z817pETKn2eUVTVFPL/preview"
+          >
+            <span>Episode 01 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1kAlfrQHbs-5kS-oVZ-gZOpRPZwwgZ5c4/preview"
+          >
+            <span>Episode 02 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1Ld2hSqAcZBnFNtY1wNBfD49gqkzMPsR5/preview"
+          >
+            <span>Episode 03 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1BT0ZfRDyV4Pr7oml4_oyvI1WxX-RY5Ao/preview"
+          >
+            <span>Episode 04 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/12px083QPEEJ0_e9QRr1pFBuX2KH63gJ4/preview"
+          >
+            <span>Episode 05 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1HFF0IoQVFW07qDq-6bGIGUBoAc9klN5F/preview"
+          >
+            <span>Episode 06 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1YVI5YfPcgUCI1kMn5RHBGwE3pv_jwpKY/preview"
+          >
+            <span>Episode 07 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1qslSypxHkhcB9U1yYdXc12uBt_MtpfF6/preview"
+          >
+            <span>Episode 08 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1kcaPgBt8egBIGXwi3nNF5bzXtuZ2WLSt/preview"
+          >
+            <span>Episode 09 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1eYVMY33eYnDRaISnGLR_c9wc90cG14Us/preview"
+          >
+            <span>Episode 10 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1vQgO3iTQEx_TE6mGUbl_VJHC5kAZPbX3/preview"
+          >
+            <span>Episode 11 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1xTTLJSBdc2N4wsPiudlqpOCQ0xMJ_ai0/preview"
+          >
+            <span>Episode 12 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1EfAEBLov5btgKPo-hl0__9JqfBVNb3Dt/preview"
+          >
+            <span>Episode 13 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1rng0ZikuvU8WlhuyRCSY4JdiNSHGW1jG/preview"
+          >
+            <span>Episode 14 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1R2VKs49bjYo-E1QM5HrDsoNLUC4jNH1D/preview"
+          >
+            <span>Episode 15 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1_qC6t6ET5EqsfALWkiEh0bTN9Q-DrfRE/preview"
+          >
+            <span>Episode 16 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1UtGgRfXZ0O1i_eOeoTx7Lgmg6sXXGDPT/preview"
+          >
+            <span>Episode 17 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1is0v9rVjkAIqf2lilm9mwePG36Q5fGdA/preview"
+          >
+            <span>Episode 18 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1myCWkXKkLF2YoxbpyqHeoj06c_L50Rv-/preview"
+          >
+            <span>Episode 19 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1d02JTb9BsHLkoRa7Dw3TKmbLDHiW3TDX/preview"
+          >
+            <span>Episode 20 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1xX1_UxddCbb5OzL_syXmMVE5Zq2y_sxa/preview"
+          >
+            <span>Episode 21 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1hVgerY489ll1uU3UnQS7G2uivls8dIgS/preview"
+          >
+            <span>Episode 22 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1wWDiXG6nqkNSpYbjhlbG73pULVs0fWIf/preview"
+          >
+            <span>Episode 23 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1nC42DuXZCLji721AHlrXsHDXts2Q_MUG/preview"
+          >
+            <span>Episode 24 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1vZxuY_4JzrpCLMlVO6hOkV53tP8jaHol/preview"
+          >
+            <span>Episode 25 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1gtb7Wuz396W6GeinK22A4mLXJa8AgK_K/preview"
+          >
+            <span>Episode 26 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1g5P53FbPrjOb7L3H5SP5z7Jtq-7zrUDK/preview"
+          >
+            <span>Episode 27 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1FMvYE07629vyXYBl6sy-FDgze3_Nn7lQ/preview"
+          >
+            <span>Episode 28 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1qwepsL3DNuXuQpt_K0VW8nh8arYQH1Oy/preview"
+          >
+            <span>Episode 29 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1Ztd5Ct75qwUJLsasAsGWTWNIfKWhA6Hs/preview"
+          >
+            <span>Episode 30 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1yKpMxcpvsrvNk5boO2q-srEc2grYRkGQ/preview"
+          >
+            <span>Episode 31 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1nUCgVuYppHCwklKJ747djLhx8QgLlDAf/preview"
+          >
+            <span>Episode 32 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/10tQ5sFK6TJOj73hneILQGqeYeIwRO1i8/preview"
+          >
+            <span>Episode 33 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1Gx54SlYrNEx7ftwCxRalYTXvG7GGAEkE/preview"
+          >
+            <span>Episode 34 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1uhIoiet18xTc4gWOhVL-Iusj7QqvVpGK/preview"
+          >
+            <span>Episode 35 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/11WGVcypTn6bqralr5y0ViV38JxTE4If0/preview"
+          >
+            <span>Episode 36 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1K1gNtFGMeABJTUSxfSeqxkAJyRRsjsMZ/preview"
+          >
+            <span>Episode 37 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/135RkHvFd3VDNlj-PptGM5UYWiEd3Bcll/preview"
+          >
+            <span>Episode 38 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/17hZBryqCfmluOBvJnT4EfttU6vlaXsHr/preview"
+          >
+            <span>Episode 39 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1-WGf67ioa7jXIVa6-tKWOJZkdXbpraaW/preview"
+          >
+            <span>Episode 40 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1P30KIFyaqz8Clndki8r8J15SgAAvlmBS/preview"
+          >
+            <span>Episode 41 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1ULp3FhMns5Ss59nSdTQfMD2lD4BLV1PN/preview"
+          >
+            <span>Episode 42 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1Tx8_gFxVXRXAMz-1B1JmDwqi5SBQGJ0I/preview"
+          >
+            <span>Episode 43 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1c40gKqOzvwA2hU71s1fPPi3rvd57vsOC/preview"
+          >
+            <span>Episode 44 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1pNTes3ivop9cBr7mIokLs-KFbK8Qsxj7/preview"
+          >
+            <span>Episode 45 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1fRVqYbkl75Qss1-uUD6uK3mThyVMEEAG/preview"
+          >
+            <span>Episode 46 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1mrAsJl_v8Sf2z64ttXRkLp_3njeCYWYR/preview"
+          >
+            <span>Episode 47 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1RTq1rL4xHq3jfhB35XBA0HFZ3sQzKqfK/preview"
+          >
+            <span>Episode 48 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1O8RiLobKnZJFbo7lpQtmJVgdFiaoPUWS/preview"
+          >
+            <span>Episode 49 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1UWXro5v4cRlj28BA3rlY14dVsvWELEr3/preview"
+          >
+            <span>Episode 50 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1TBhUoalAPhKXxlkpAtOMKDRjuxXUGT-L/preview"
+          >
+            <span>Episode 51 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1LDoX2VhKUZoDB4D4rZxBDS88-Xn7gi_3/preview"
+          >
+            <span>Episode 52 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1alAVVUN_s4KCNPtw4Vww3TD8f8HCTRNv/preview"
+          >
+            <span>Episode 53 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/180DrKy9E3XMZztqT0JmMLhwn7vzWupV_/preview"
+          >
+            <span>Episode 54 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1b2X2Zr4RrjX8NGm-it7HRZiOr_RS3EKr/preview"
+          >
+            <span>Episode 55 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1V0iTnLfLuxKxcY_jG4z7AsmInXSSUVaa/preview"
+          >
+            <span>Episode 56 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1YHDc_lpvRURpxsafBCeJgklPkyDRxkCP/preview"
+          >
+            <span>Episode 57 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1iNQXUIALOkvHKASHJXTBrh272pbFbrpv/preview"
+          >
+            <span>Episode 58 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1E2tLdYboGMnUvCxbZyIUObWqrceF0AvZ/preview"
+          >
+            <span>Episode 59 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1IZ8p8RiP-1ij8pYgT6Bf5Qs4ZjbQYOGE/preview"
+          >
+            <span>Episode 60 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/13VzqOv4-AEg4WHrJ8Rkf4d1cw1mF9p44/preview"
+          >
+            <span>Episode 61 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1iaIf_5L-Zd9EnZgOqXfJU_cRR0xA7Neg/preview"
+          >
+            <span>Episode 62 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1z5dOZXD133CYEhxSxWUK79B1EFV86zw5/preview"
+          >
+            <span>Episode 63 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1WiY3rDi7c0iC-DIkwos9OpPta4Gemlws/preview"
+          >
+            <span>Episode 64 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/15QCiVBE3Xu3ikt4C1o7BcS7s0wL-K_hH/preview"
+          >
+            <span>Episode 65 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1wgGAab4a-BwE_lDSPhNGMDHPTkFe_WXI/preview"
+          >
+            <span>Episode 66 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1luNHRKS723_qJ6iBlObJURinZWxnDu54/preview"
+          >
+            <span>Episode 67 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1-J9oqkQAMNYRGS_5Ph2CX0Nmy-K5uoMP/preview"
+          >
+            <span>Episode 68 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1T93rKj0UkqBEVxvbUEURSW29oPgfR0XL/preview"
+          >
+            <span>Episode 69 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1n_ZC5pCB9IoMRj9o8BtkddlwCbv21GJq/preview"
+          >
+            <span>Episode 70 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1NwBC17BBhoAEEwltOb5fViLpjiQrPZHX/preview"
+          >
+            <span>Episode 71 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1jeWvlnyjpId2F-C1GLJaCwo2OMdE-IIj/preview"
+          >
+            <span>Episode 72 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1bnW-n_QC85h1tYWEDtCzQ6N9js5poy_n/preview"
+          >
+            <span>Episode 73 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1xtC508ADyqKUcobYe1CWOTsaGZNmoktV/preview"
+          >
+            <span>Episode 74 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+          <!-- //////////////////////////////////////////////////// -->
+          <nav
+            data-link="https://drive.google.com/file/d/1nB5FoFb_nWJFydFUyxrOen278dkvT7Yo/preview"
+          >
+            <span>Episode 75 </span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S1<button>Stream</button>
+          </nav>
+        </div>
+        <!-- ////////////////////////////////////////////// -->
+        <div id="s2s2">
+          <nav
+            data-link="https://drive.google.com/file/d/1e0-gOJdpksvYvFckLfxKbkYguviRC_Oh/preview"
+          >
+            <span>Episode 01</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      const db = getDatabase(
-        app,
-        "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app/",
-      );
-      let loco = document.querySelector(".actions");
+          <nav
+            data-link="https://drive.google.com/file/d/1EzwlvI0lSCqD4UHnk9dUbZTQ482LYV_5/preview"
+          >
+            <span>Episode 02</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1j6a8nPuNzL_dqGR1AyAFHDIN8qFHEzsa/preview"
+          >
+            <span>Episode 03</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1wI5Y2ednZgzIo7dM_5XJYHT6Ebr__T0_/preview"
+          >
+            <span>Episode 04</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1edonr3ENtca7TaSujnba0STq7QscyWP3/preview"
+          >
+            <span>Episode 05</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1S4fSDWBVp610VlhbWFDBx2IrnDQ4zMBC/preview"
+          >
+            <span>Episode 06</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1tw3ycp2Tl1_-Q6rT6mqDpSqlSkg82uic/preview"
+          >
+            <span>Episode 07</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1Q6vH_bkm4nbZOLh0rR9X6OH6iKUzBXLm/preview"
+          >
+            <span>Episode 08</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1T0ophdk_pCibRzCFKdCltI4sxCh_DXia/preview"
+          >
+            <span>Episode 09</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1_6fVrHv3uyYhwp2wanU-zyAouYTjugFY/preview"
+          >
+            <span>Episode 10</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1-es96OZFyKSHeS4GtLGjJJa0x0C55eDA/preview"
+          >
+            <span>Episode 11</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1WuT0o8AONrLBdPVoAwYzhIb2nqtZlyWt/preview"
+          >
+            <span>Episode 12</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1-3s211srIGQuXWeo_X9uTbV__C03a6yM/preview"
+          >
+            <span>Episode 13</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1Kue2VDoVwkVDW3629KoVnr0RURDajWww/preview"
+          >
+            <span>Episode 14</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1xWiGH2cypnvobTcqaV_NG0KS7AOS3AxT/preview"
+          >
+            <span>Episode 15</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1HzRN4nUKVDtsk0ZjyixFjkdmUnzfYsda/preview"
+          >
+            <span>Episode 16</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1OiIGHifStJzr5N_nle1DxPIWGv-X0O1z/preview"
+          >
+            <span>Episode 17</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1ruiA4p4v6d0m7loktwixVX03NE_l1b0d/preview"
+          >
+            <span>Episode 18</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1wAtWy7aQvbzc5S-HRztJqErv7x0t9tEO/preview"
+          >
+            <span>Episode 19</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1HK9eQ2JqIP1liM5aGOZVp112swn7kHhF/preview"
+          >
+            <span>Episode 20</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1dNWNsmXBKMPsUi6824zIKAN65OtpfBg_/preview"
+          >
+            <span>Episode 21</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1xW_hrr_qdo5VDiI4l9EF0ZXW8ggkmSsw/preview"
+          >
+            <span>Episode 22</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1zj0xRWxOGxYwZ8vKHagThxboWAm2oXGc/preview"
+          >
+            <span>Episode 23</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1iFsOi01eKh_tjBQ4151ga_LxAtBs90v-/preview"
+          >
+            <span>Episode 24</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1JhFOv_wylYXdQMbUu1RKIMLiFr5Mu6mh/preview"
+          >
+            <span>Episode 25</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1r7IFy5L36rJG0hWda8Fnm-imFRohEBOG/preview"
+          >
+            <span>Episode 26</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S2<button>Stream</button>
+          </nav>
+        </div>
+        <div id="s3s3">
+          <nav
+            data-link="https://drive.google.com/file/d/1DF3ZHrp0wqCuWIvY4lx9Kmgz-yfMcZQ9/preview"
+          >
+            <span>Episode 01</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1MN1v9HtBlPNFXixyCh-0eUFYjJHhcWy1/preview"
+          >
+            <span>Episode 02</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/12TAakWrD2tDwVg0GRcTaeHWlgmv3dxKW/preview"
+          >
+            <span>Episode 03</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1RNYla61zj1Rnguwoqg5YMmQ_3z1yNIol/preview"
+          >
+            <span>Episode 04</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1wBc7nyqcfRTpGafbYFv1ZW6viruHujjt/preview"
+          >
+            <span>Episode 05</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1CBwsibRUSTu1kIV1znXyfpiEdymAu2iM/preview"
+          >
+            <span>Episode 06</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/10wiJydmMS42g7ZZhTsGE7_4CrdaSRa6F/preview"
+          >
+            <span>Episode 07</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1MWQ8XnfOJkIhdeS6kQ6VgTlfpVXZQcte/preview"
+          >
+            <span>Episode 08</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/16pMbtT0xkTczI6EfGGz8zOGs81g7z_6F/preview"
+          >
+            <span>Episode 09</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1rDxFNy_V0vOpqWATkX-RUCnDmmUV3P41/preview"
+          >
+            <span>Episode 10</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1BsngobhnxH_LW9qefJPsWb6nDCu-6lS2/preview"
+          >
+            <span>Episode 11</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1Pn5GH-R1SGbVeCgZYFSDOaY3Xqb68T3m/preview"
+          >
+            <span>Episode 12</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/117cSPHZ8_evcjN9oR98DDFoRxuzk9YEb/preview"
+          >
+            <span>Episode 13</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1-YQoLk5a7H4YDO8ig-rsI1xsbQRscIFw/preview"
+          >
+            <span>Episode 14</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/17KixoRdNAVbMoy4Q5bj427hvWSvlg1ad/preview"
+          >
+            <span>Episode 15</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1-UI38eFLdZEs5V80Huepw_VdbEYjmMcS/preview"
+          >
+            <span>Episode 16</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1JSGEXuK0ck8xbFTdJkPY5VfGY5Qb6dm0/preview"
+          >
+            <span>Episode 17</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/14OlPgLHU69ZpczOBjCEsOlSN_2h6HGeQ/preview"
+          >
+            <span>Episode 18</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1NzFM-VkoRnpkVpDuz8W0R1Jwmi6QrUG_/preview"
+          >
+            <span>Episode 19</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1U4HjOHPdY76slEZ5zivUdLGAysW1QOlB/preview"
+          >
+            <span>Episode 20</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1bEpHUSdCEQ2jpaIzUxmMIWOCUS-RVYw3/preview"
+          >
+            <span>Episode 21</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1detMLv1zvBnYXOkc2OAc8fbABIf5gALt/preview"
+          >
+            <span>Episode 22</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/12njiJD56s2dyn2TNgwapqWTSOA0ESbRJ/preview"
+          >
+            <span>Episode 23</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1ZhSdf-mGM4zxopGA08dv24IrICkgQ3qp/preview"
+          >
+            <span>Episode 24</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+
+          <nav
+            data-link="https://drive.google.com/file/d/1RIzpMkXtblMhUEYc4q-SnkQ161HjvR9h/preview"
+          >
+            <span>Episode 25</span> &nbsp;&nbsp;&nbsp; Hajime No Ippo -
+            S3<button>Stream</button>
+          </nav>
+        </div>
+      </div>
+      <!--  this one is series holder means content -->
+      <!-- ////////////////////////////////////////////////////////////////////
+       this one is abcd -->
+    </div>
+    <script>
+      //////////////////////////////////////////////////////////////////////////////
+      let seasonBlock = document.querySelector(".season-block");
+      seasonBlock.addEventListener("click", (e) => {
+        let id = e.target.id;
+        if (id) {
+          let allSeasons = document.querySelectorAll(".season-block div");
+          allSeasons.forEach((e) => {
+            if (e.id == id) {
+              e.style.borderBottom = "2px solid red";
+              whichSeason(`${e.id}`);
+            } else {
+              e.style.borderBottom = "2px solid transparent";
+            }
+          });
+        }
+        // console.log('clicked on block');
+      });
+      //////////////////////////////////////////////////////////////////////////
+      function whichSeason(snid) {
+        let container = document.querySelectorAll(".content div");
+        let check = document.getElementById(`${snid}${snid}`);
+        if (check) {
+          container.forEach((e) => {
+            // console.log(e.id);
+            if (e.id == `${snid}${snid}`) e.style.display = "flex";
+            else {
+              e.style.display = "none";
+            }
+          });
+        } else {
+          console.log("Season Did not exist!");
+          container.forEach((e) => {
+            e.style.display = "none";
+          });
+        }
+      }
+      whichSeason("s1");
+      ////////////////////////////////////////////////////////////////////////////
+      let loco = document.querySelector(".top-top button");
       loco.addEventListener("click", async () => {
         console.log("clicked");
-        let path = ref(db, "MovieApp/Past/last/");
-        let backval = await get(path);
-        backval = backval.val();
-        if (backval == "main") window.location.href = "index.html";
-        else if (backval == "movies") window.location.href = "movies.html";
+        let backval = localStorage.getItem("path");
+        if (backval == "movies") window.location.href = "movies.html";
         else if (backval == "latest") window.location.href = "latest.html";
         else if (backval == "series") window.location.href = "series.html";
+        else window.location.href = "index.html";
+      });
+      ////////////////////////////////////////////////////////////////////////
+      let eps = document.querySelectorAll("nav");
+      let exit = document.querySelector(".actions");
+      let box = document.querySelector(".box");
+      let abcd = document.querySelector(".abcd");
+      let src = document.getElementById("ifram");
+      let help = document.querySelector(".help");
+      eps.forEach((e) => {
+        e.addEventListener("click", (e) => {
+          // console.log(e.currentTarget.dataset.link);
+          // console.log(e.target);
+          src.src = e.currentTarget.dataset.link;
+          box.style.display = "block";
+          abcd.style.display = "none";
+          const currentNav = event.currentTarget;
+          const clone = currentNav.cloneNode(true);
+          const button = clone.querySelector("button");
+          if (button) button.remove();
+          const cleanText = clone.textContent.replace(/\s+/g, " ").trim();
+          help.innerText = cleanText;
+          // console.log(e.currentTarget.innerText);
+        });
+      });
+      exit.addEventListener("click", () => {
+        abcd.style.display = "block";
+        src.src = "";
+        box.style.display = "none";
       });
     </script>
   </body>
