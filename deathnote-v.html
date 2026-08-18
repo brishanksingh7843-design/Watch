@@ -3,12 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Threater" />
-    <meta name="description" content="Watch it!" />
     <meta name="theme-color" content="black" />
-    <meta property="og:title" content="Threater" />
-    <meta property="og:description" content="Free Watch!" />
-    <meta propert="og:image" content="" />
     <link
       rel="icon"
       type="image/png"
@@ -16,74 +11,252 @@
     />
     <title>Threater</title>
     <style>
-      body {
-        background: black;
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        width: 100vw;
+      :root {
+        --Rich-Charcoal: #121212;
+        --Deep-Midnight-Blue: #0a0e17;
+        --Obsidian-Slate: #18181c;
+        --Dark-Cinema-Purple: #18181c;
       }
-      .box {
+      body {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        width: 100%;
         height: 100vh;
-        width: 100vw;
-        overflow-x: hidden;
-        overflow-y: auto;
-        scrollbar-gutter: stable;
-        position: relative;
+        background: var(--Deep-Midnight-Blue);
+        color: white;
         user-select: none;
       }
-      .box::-webkit-scrollbar {
-        /* height:5px; */
+      .top {
+        height: 130px;
+        /* border: 1px solid black; */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scrollbar-gutter: stable;
+        background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN9Zw-ocFYFXs_iVVGOykB2s0jJSR59MBJw7G8n5u8Rw&s=10");
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+      .top-top {
+        display: flex;
+        justify-content: space-between;
+        /* border:1px solid black; */
+        padding: 0;
+        margin: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 35px;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        font-weight: bold;
+      }
+      .top-top button {
+        font-weight: bold;
+        background: rgb(0, 0, 181);
+        padding: 4px;
+        border: 1px solid rgb(206, 206, 206);
+        border-radius: 7px;
+        color: white;
+      }
+      .top-top button:hover {
+        transform: scale(0.9);
+      }
+      .top-title {
+        font-size: 21px;
+        /* width: 100%; */
+        text-shadow: 0 0 10px black;
+        margin: 0;
+        padding: 0;
+        padding-top: 10px;
+        padding-left: 15px;
+        box-sizing: border-box;
+        font-weight: bold;
+      }
+      .top-description {
+        /* width: 100%; */
+        margin: 0;
+        padding: 0;
+        padding-top: 10px;
+        padding-left: 25px;
+        font-family: Courier;
+        color: rgb(4, 0, 255);
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-gutter: stable;
+        letter-spacing: 1px;
+        font-weight: bold;
+      }
+      .season-block {
+        width: 100%;
+        height: 30px;
+        margin: 0;
+        padding: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        column-gap: 10px;
+        user-select: none;
+        cursor: pointer;
+        overflow: hidden;
+        background: var(--Dark-Cinema-Purple);
+        /* border:1px solid black; */
+      }
+      .season-block div {
+        font-size: 12px;
+        flex: 1;
+        display: flex;
+        align-content: center;
+        margin: 0;
+        padding: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border-bottom: 2px solid transparent;
+      }
+      #s1 {
+        border-bottom: 2px solid red;
+      }
+      .content {
+        margin: 0;
+        padding: 0px;
+        padding-top: 5px;
+        width: calc(100% - 5px);
+        min-height: calc(calc(100vh / 2.5) - 5px);
+        max-height: calc(100vh - 160px);
+        /* border: 1px solid white; */
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .content div {
+        margin: 0;
+        padding: 15px;
+        /* width: 100vw; */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+      }
+      .content div nav {
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        font-size: 10px;
+        border-radius: 10px;
+        /* border: 1px solid rgb(128, 128, 128); */
+        font-family: Georgia;
+        font-weight: bold;
+        letter-spacing: 1px;
+        position: relative;
+        position: relative;
+        transition: transform 0.2s;
+        background: black;
+      }
+      nav button {
+        position: absolute;
+        right: 10px;
+        background: transparent;
+        border: none;
+        color: rgb(255, 0, 0);
+        font-weight: bold;
+        border-radius: 8px;
+        height: 17%;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+      nav:hover button {
+        color: white;
+      }
+      nav:hover {
+        transform: translateX(6px);
+      }
+      nav:active {
+        transform: scale(0.9);
+      }
+      nav span {
+        color: red;
+        text-shadow: 0 0 10px red;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-family: impact;
+      }
+      .content::-webkit-scrollbar {
+        width: 5px;
+      }
+      .content::-webkit-scrollbar-button {
         display: none;
-        width: 0.4vw;
+      }
+      .content::-webkit-scrollbar-track {
+        color: transparent;
         background: transparent;
       }
-      .box::-webkit-scrollbar-background {
-        color: red;
+      /* .content::-webkit-scrollbar-track-piece {} */
+      .content::-webkit-scrollbar-thumb {
+        /* color:red; */
+        border-radius: 3px;
+        background: red;
+      }
+      .content::-webkit-scrollbar-thumb:hover {
+        background: rgb(255, 220, 220);
+      }
+      .box {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        z-index: 50;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+        display: none;
+      }
+      .box::-webkit-scrollbar {
+        width: 1px;
+        display: none;
+      }
+      .box::-webkit-scrollbar-track {
+        background: black;
       }
       .box::-webkit-scrollbar-thumb {
-        /* color:red; */
         background: red;
-        border-radius: 100px;
-      }
-      .frame {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
-        border-bottom: 1px solid white;
-      }
-      .actions {
-        height: 10vh;
-        width: 100vw;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background: rgba(255, 78, 78, 0.627);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-        z-index: 3;
-      }
-      .actions:hover {
-        transition: scale(0.8);
       }
       iframe {
         width: 100vw;
         height: 100vh;
-        border: none;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
+        border: none;
+      }
+      .actions {
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(188, 0, 0);
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        letter-spacing: 2px;
+      }
+      .help {
+        width: 100vw;
+      }
+      .abcd {
+        display: block;
       }
     </style>
   </head>
@@ -91,7 +264,7 @@
     <div class="box">
       <div class="frame">
         <iframe
-          src="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/"
+          src=""
           width="100%"
           height="100%"
           allow="autoplay"
@@ -100,53 +273,378 @@
           frameborder="0"
         ></iframe>
       </div>
-      <div class="actions" tabindex="0">---EXIT---</div>
+      <div class="help">Help Here</div>
+      <div class="actions" tabindex="0">EXIT</div>
     </div>
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
-      import {
-        getDatabase,
-        set,
-        get,
-        ref,
-        update,
-        remove,
-        onValue,
-      } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-database.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+    <!-- ///////////////////////////////////////////////////////// -->
+    <div class="abcd">
+      <!-- //////////////////////////////////////////////////////////////////// -->
+      <div class="top">
+        <div class="top-top">
+          <p><span style="color: red">STREAM </span> HUB</p>
+          <button>&nbsp; BACK &nbsp;</button>
+        </div>
+        <!-- Title -->
+        <div class="top-title">Death Note</div>
+        <!-- Description -->
+        <div class="top-description">
+          An intelligent high school student goes on a secret crusade to
+          eliminate criminals from the world after discovering a notebook
+          capable of killing anyone whose name is written into it.
+        </div>
+      </div>
+      <!-- //////////////////////////////////////////////////////////////////////// -->
+      <div class="season-block">
+        <!-- Seasons -->
+        <div id="s1">Season 1</div>
+      </div>
+      <!-- //////////////////////////////////////////////////////////////////////// -->
 
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyB8rjh6NKrg4Yx3hRLvY9IoUFlKIpbl9vQ",
-        authDomain: "myhomepage-a903f.firebaseapp.com",
-        databaseURL:
-          "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "myhomepage-a903f",
-        storageBucket: "myhomepage-a903f.firebasestorage.app",
-        messagingSenderId: "147182994829",
-        appId: "1:147182994829:web:ed1ab09feb736c7683a9c4",
-        measurementId: "G-5KDSSM53B9",
-      };
+      <!-- /////////////////////////////////////////////////////////////////////// -->
+      <div class="content">
+        <!-- /////////////////////////////////////////////////////////////////////// -->
+        <!-- ////////////////////////////////////////////////////////////////////// -->
+        <!-- ///////////////////////////////////////////////////////////////////// -->
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      const db = getDatabase(
-        app,
-        "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app/",
-      );
-      let loco = document.querySelector(".actions");
+        <div id="s1s1">
+          <nav
+            data-link="https://drive.google.com/file/d/1D8SxKQ8mWgCk2JAPpqL0bCb5aQCRTNSS/preview"
+          >
+            <span>Episode 01 </span> &nbsp;&nbsp;&nbsp; Rebirth<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1nEnONC2bSMZyOrydD5g3vmuWCN10cRG-/preview"
+          >
+            <span>Episode 02 </span> &nbsp;&nbsp;&nbsp; Confrontation<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1P6L2VXwA3FSYYX0aHdI3vEHz-5FsxDaz/preview"
+          >
+            <span>Episode 03 </span> &nbsp;&nbsp;&nbsp; Dealings<button>
+              Stream
+            </button>
+          </nav>
+          <nav data-link="">
+            <span>Episode 04 </span> &nbsp;&nbsp;&nbsp; Pursuit<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1SvzjpyGEtfsShPQ-FXnyNyQxaTRdlMu_/preview"
+          >
+            <span>Episode 05 </span> &nbsp;&nbsp;&nbsp; Tactics<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1H9jHwGtz_r12xAKDfwWXDoSXOOoNRSxM/preview"
+          >
+            <span>Episode 06 </span> &nbsp;&nbsp;&nbsp; Unraveling<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1Jt1SEnrnV1MsXe7b8CHZqToXJ7Gn8adD/preview"
+          >
+            <span>Episode 07 </span> &nbsp;&nbsp;&nbsp; Overcast<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/17ktquPSv-Jre36uAy5tcd7Zooar3f5Cf/preview"
+          >
+            <span>Episode 08 </span> &nbsp;&nbsp;&nbsp; Glare<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1EMpTr9BtbtCULXlpIir9LsD9-0wOkbBe/preview"
+          >
+            <span>Episode 09 </span> &nbsp;&nbsp;&nbsp; Encounter<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1InjpDmEmd_2HUctLmx5uviBcIJ5Z6CaB/preview"
+          >
+            <span>Episode 10 </span> &nbsp;&nbsp;&nbsp; Doubt<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1F3OgS7o6XRiVG0orjlGnV9TRW_jwfdnQ/preview"
+          >
+            <span>Episode 11 </span> &nbsp;&nbsp;&nbsp; Assault<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1pUNLswoJXai_DKJP-HAU7KT7GmekQXLf/preview"
+          >
+            <span>Episode 12 </span> &nbsp;&nbsp;&nbsp; Love<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1_UQTE5FDZpezCakjLwLZjvaeQ28iQ5TB/preview"
+          >
+            <span>Episode 13 </span> &nbsp;&nbsp;&nbsp; Confession<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1fhCeIaqlmUZJh2wt4VXXD0gzdlMdTAOS/preview"
+          >
+            <span>Episode 14 </span> &nbsp;&nbsp;&nbsp; Friend<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1OjjzPS85eTTxmpQlEPuPp0cphiHWUZJR/preview"
+          >
+            <span>Episode 15 </span> &nbsp;&nbsp;&nbsp; Wager<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1a_kXh8Pc4cSZQyhvnYE0chKYdDtCY-gT/preview"
+          >
+            <span>Episode 16 </span> &nbsp;&nbsp;&nbsp; Decision<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1-PrDUEQBcgqGzd8C4iIpV2V3rZI2Cta8/preview"
+          >
+            <span>Episode 17 </span> &nbsp;&nbsp;&nbsp; Execution<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1TioiXN-Xvph_dhQNCEFkiqpoyfCZY2p2/preview"
+          >
+            <span>Episode 18 </span> &nbsp;&nbsp;&nbsp; Ally<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1GyMgmmveMQpv1-s1t72RvZzArUCG25-g/preview"
+          >
+            <span>Episode 19 </span> &nbsp;&nbsp;&nbsp; Matsuda<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1EwAW7eKLQWbKZAiRJMUXRBnGora3EFlQ/preview"
+          >
+            <span>Episode 20 </span> &nbsp;&nbsp;&nbsp; Makeshift<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1hx6dNT5Ry2c2CseBIdJpk-avNdhGnv5L/preview"
+          >
+            <span>Episode 21 </span> &nbsp;&nbsp;&nbsp; Performance<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1k2QsHEeXxY7K7w4Kuw4cL-3bi0dJ3eog/preview"
+          >
+            <span>Episode 22 </span> &nbsp;&nbsp;&nbsp; Guidance<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/11un78jPtFf-qXz_bhbUnxl-BO9LW-Pn6/preview"
+          >
+            <span>Episode 23 </span> &nbsp;&nbsp;&nbsp; Frenzy<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/14UwyPZf9HoiCKowbTQHaP4GiqX0Kx9dD/preview"
+          >
+            <span>Episode 24 </span> &nbsp;&nbsp;&nbsp; Revival<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1LctKowa6Ya2BqOngKwoc-Iz8B93zaJCD/preview"
+          >
+            <span>Episode 25 </span> &nbsp;&nbsp;&nbsp; Silence<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1cvYqK-vT3Tdp1waPwdKUjKvviqQEJgM6/preview"
+          >
+            <span>Episode 26 </span> &nbsp;&nbsp;&nbsp; Renewal<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/19rIwEhHslrto2JDO8PqaRGAj6v4A12xi/preview"
+          >
+            <span>Episode 27 </span> &nbsp;&nbsp;&nbsp; Abduction<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1CuMdAkQlotYgtHHq6TeGTGs3PhZ4Tfmq/preview"
+          >
+            <span>Episode 28 </span> &nbsp;&nbsp;&nbsp; Impatience<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1TEX-VE_djGLuqDeBzH_k6E32RdXqTUI2/preview"
+          >
+            <span>Episode 29 </span> &nbsp;&nbsp;&nbsp; Father<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/14a3xWjSKh21TzPuCPRHnGDL8TvRugM8L/preview"
+          >
+            <span>Episode 30 </span> &nbsp;&nbsp;&nbsp; Justice<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/18onaCbGh-JnSTizZTEMAoW_1PKX0TYTj/preview"
+          >
+            <span>Episode 31 </span> &nbsp;&nbsp;&nbsp; Transfer<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1EnaL3gq-wuCUo_FgB1vu2Bzx-MGUQ7jZ/preview"
+          >
+            <span>Episode 32 </span> &nbsp;&nbsp;&nbsp; Selection<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1Mkn82IelnLhOiTjMeJifHs_XgbEYloBY/preview"
+          >
+            <span>Episode 33 </span> &nbsp;&nbsp;&nbsp; Scorn<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1vkXLRioUqXZ24c65oeHWq9N1XpPDAox-/preview"
+          >
+            <span>Episode 34 </span> &nbsp;&nbsp;&nbsp; Vigilance<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1bVn-p-tGuWlnT4OV8SHEePR2pL2pUb4o/preview"
+          >
+            <span>Episode 35 </span> &nbsp;&nbsp;&nbsp; Malice<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1LAR04utfjwrnwltK0pZTyM_92Y5TLHI4/preview"
+          >
+            <span>Episode 36 </span> &nbsp;&nbsp;&nbsp; 1.28<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1hVkxwSzmevfEFXmlspWDc5nmyQj4WIG1/preview"
+          >
+            <span>Episode 37 </span> &nbsp;&nbsp;&nbsp; New World<button>
+              Stream
+            </button>
+          </nav>
+        </div>
+
+        <!-- /////////////////////////////////////////////////////////////////////// -->
+        <!-- ////////////////////////////////////////////////////////////////////// -->
+        <!-- ///////////////////////////////////////////////////////////////////// -->
+      </div>
+    </div>
+    <script>
+      //////////////////////////////////////////////////////////////////////////////
+      let seasonBlock = document.querySelector(".season-block");
+      seasonBlock.addEventListener("click", (e) => {
+        let id = e.target.id;
+        if (id) {
+          let allSeasons = document.querySelectorAll(".season-block div");
+          allSeasons.forEach((e) => {
+            if (e.id == id) {
+              e.style.borderBottom = "2px solid red";
+              whichSeason(`${e.id}`);
+            } else {
+              e.style.borderBottom = "2px solid transparent";
+            }
+          });
+        }
+        // console.log('clicked on block');
+      });
+      //////////////////////////////////////////////////////////////////////////
+      function whichSeason(snid) {
+        let container = document.querySelectorAll(".content div");
+        let check = document.getElementById(`${snid}${snid}`);
+        if (check) {
+          container.forEach((e) => {
+            // console.log(e.id);
+            if (e.id == `${snid}${snid}`) e.style.display = "flex";
+            else {
+              e.style.display = "none";
+            }
+          });
+        } else {
+          console.log("Season Did not exist!");
+          container.forEach((e) => {
+            e.style.display = "none";
+          });
+        }
+      }
+      whichSeason("s1");
+      ////////////////////////////////////////////////////////////////////////////
+      let loco = document.querySelector(".top-top button");
       loco.addEventListener("click", async () => {
         console.log("clicked");
         let backval = localStorage.getItem("path");
-        if (backval == "main") window.location.href = "index.html";
-        else if (backval == "movies") window.location.href = "movies.html";
+        if (backval == "movies") window.location.href = "movies.html";
         else if (backval == "latest") window.location.href = "latest.html";
         else if (backval == "series") window.location.href = "series.html";
+        else window.location.href = "index.html";
+      });
+      ////////////////////////////////////////////////////////////////////////
+      let eps = document.querySelectorAll("nav");
+      let exit = document.querySelector(".actions");
+      let box = document.querySelector(".box");
+      let abcd = document.querySelector(".abcd");
+      let src = document.getElementById("ifram");
+      let help = document.querySelector(".help");
+      eps.forEach((e) => {
+        e.addEventListener("click", (e) => {
+          // console.log(e.currentTarget.dataset.link);
+          src.src = e.currentTarget.dataset.link;
+          box.style.display = "block";
+          help.innerText = e.currentTarget.innerText;
+          abcd.style.display = "none";
+          const currentNav = event.currentTarget;
+          const clone = currentNav.cloneNode(true);
+          const button = clone.querySelector("button");
+          if (button) button.remove();
+          const cleanText = clone.textContent.replace(/\s+/g, " ").trim();
+          help.innerText = cleanText;
+        });
+      });
+      exit.addEventListener("click", () => {
+        abcd.style.display = "block";
+        src.src = "";
+        box.style.display = "none";
       });
     </script>
   </body>
