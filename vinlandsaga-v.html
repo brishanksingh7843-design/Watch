@@ -3,12 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Threater" />
-    <meta name="description" content="Watch it!" />
     <meta name="theme-color" content="black" />
-    <meta property="og:title" content="Threater" />
-    <meta property="og:description" content="Free Watch!" />
-    <meta propert="og:image" content="" />
     <link
       rel="icon"
       type="image/png"
@@ -16,431 +11,256 @@
     />
     <title>Threater</title>
     <style>
-      body {
-        background: black;
-        margin: 0;
-        padding: 0;
-        height: 100vh;
-        width: 100vw;
+      :root {
+        --Rich-Charcoal: #121212;
+        --Deep-Midnight-Blue: #0a0e17;
+        --Obsidian-Slate: #18181c;
+        --Dark-Cinema-Purple: #18181c;
       }
-      .box {
+      body {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        width: 100%;
         height: 100vh;
-        width: 100vw;
-        overflow-x: hidden;
-        overflow-y: auto;
-        scrollbar-gutter: stable;
-        position: relative;
+        background: var(--Deep-Midnight-Blue);
+        color: white;
         user-select: none;
       }
-      .box::-webkit-scrollbar {
-        /* height:5px; */
+      .top {
+        height: 130px;
+        /* border: 1px solid black; */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scrollbar-gutter: stable;
+        background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJeKzJmh9lQ6sMXAm7PGi0yhsqjBd3l5rC1xUhOOHaFw&s=10");
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+      }
+      .top-top {
+        display: flex;
+        justify-content: space-between;
+        /* border:1px solid black; */
+        padding: 0;
+        margin: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 35px;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        font-weight: bold;
+      }
+      .top-top button {
+        font-weight: bold;
+        background: rgb(0, 0, 181);
+        padding: 4px;
+        border: 1px solid rgb(206, 206, 206);
+        border-radius: 7px;
+        color: white;
+      }
+      .top-top button:hover {
+        transform: scale(0.9);
+      }
+      .top-title {
+        font-size: 21px;
+        /* width: 100%; */
+        text-shadow: 0 0 10px black;
+        margin: 0;
+        padding: 0;
+        padding-top: 10px;
+        padding-left: 15px;
+        box-sizing: border-box;
+        font-weight: bold;
+      }
+      .top-description {
+        /* width: 100%; */
+        margin: 0;
+        padding: 0;
+        padding-top: 10px;
+        padding-left: 25px;
+        font-family: Courier;
+        color: rgb(4, 0, 255);
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-gutter: stable;
+        letter-spacing: 1px;
+        font-weight: bold;
+      }
+      .season-block {
+        width: 100%;
+        height: 30px;
+        margin: 0;
+        padding: 0;
+        padding-left: 5px;
+        padding-right: 5px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        column-gap: 10px;
+        user-select: none;
+        cursor: pointer;
+        overflow: hidden;
+        background: var(--Dark-Cinema-Purple);
+        /* border:1px solid black; */
+      }
+      .season-block div {
+        font-size: 12px;
+        flex: 1;
+        display: flex;
+        align-content: center;
+        margin: 0;
+        padding: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border-bottom: 2px solid transparent;
+      }
+      #s1 {
+        border-bottom: 2px solid red;
+      }
+      .content {
+        margin: 0;
+        padding: 0px;
+        padding-top: 5px;
+        width: calc(100% - 5px);
+        min-height: calc(calc(100vh / 2.5) - 5px);
+        max-height: calc(100vh - 160px);
+        /* border: 1px solid white; */
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .content div {
+        margin: 0;
+        padding: 15px;
+        /* width: 100vw; */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+      }
+      .content div nav {
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        font-size: 10px;
+        border-radius: 10px;
+        /* border: 1px solid rgb(128, 128, 128); */
+        font-family: Georgia;
+        font-weight: bold;
+        letter-spacing: 1px;
+        position: relative;
+        position: relative;
+        transition: transform 0.2s;
+        background: black;
+      }
+      nav button {
+        position: absolute;
+        right: 10px;
+        background: transparent;
+        border: none;
+        color: rgb(255, 0, 0);
+        font-weight: bold;
+        border-radius: 8px;
+        height: 17%;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+      nav:hover button {
+        color: white;
+      }
+      nav:hover {
+        transform: translateX(6px);
+      }
+      nav:active {
+        transform: scale(0.9);
+      }
+      nav span {
+        color: red;
+        text-shadow: 0 0 10px red;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-family: impact;
+      }
+      .content::-webkit-scrollbar {
+        width: 5px;
+      }
+      .content::-webkit-scrollbar-button {
         display: none;
-        width: 0.4vw;
+      }
+      .content::-webkit-scrollbar-track {
+        color: transparent;
         background: transparent;
       }
-      .box::-webkit-scrollbar-background {
-        color: red;
+      /* .content::-webkit-scrollbar-track-piece {} */
+      .content::-webkit-scrollbar-thumb {
+        /* color:red; */
+        border-radius: 3px;
+        background: red;
+      }
+      .content::-webkit-scrollbar-thumb:hover {
+        background: rgb(255, 220, 220);
+      }
+      .box {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        z-index: 50;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+        display: none;
+      }
+      .box::-webkit-scrollbar {
+        width: 1px;
+        display: none;
+      }
+      .box::-webkit-scrollbar-track {
+        background: black;
       }
       .box::-webkit-scrollbar-thumb {
-        /* color:red; */
         background: red;
-        border-radius: 100px;
       }
-      .frame {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        height: 100vh;
-        width: 100vw;
-        overflow: hidden;
-        border-bottom: 1px solid white;
-      }
-      .actions {
-        height: 10vh;
-        width: 100vw;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        background: rgba(255, 78, 78, 0.627);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: white;
-        z-index: 3;
-      }
-      .actions:hover {
-        transition: scale(0.8);
-      }
-      
       iframe {
         width: 100vw;
         height: 100vh;
-        border: none;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
+        border: none;
       }
-
+      .actions {
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(188, 0, 0);
+        border: none;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        letter-spacing: 2px;
+      }
+      .help {
+        width: 100vw;
+      }
+      .abcd {
+        display: block;
+      }
     </style>
   </head>
   <body>
-    <div class="vinland">
-      <div class="back" onclick="contback()">Go Back</div>
-      <div class="namam">
-        <p><span>STREAM </span> HUB</p>
-        Vinland Saga
-        <div>
-          The Cost of Revenge & The Search for Peace Set in the ruthless age of
-          Vikings, a young warrior driven by vengeance learns the hard truth
-          about violence, redemption, and what it truly means to be a real
-          warrior.
-        </div>
-      </div>
-      <div class="seasons">
-        <div class="s1" tabindex="0">Season 1</div>
-        <div class="s2" tabindex="0">Season 2</div>
-      </div>
-      <div class="content">
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/preview"
-        >
-          <span>01</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1Xpkl8GhmnpOTRvIGxXmcF6f4CusyeOAf/preview"
-        >
-          <span>02</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1yz1YyCMLhkTKfDP_O0ndq52l5ZtFNmJN/preview"
-        >
-          <span>03</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1MpH7_ZDMcmXbphWsrv_zS64OOB8T1-sU/preview"
-        >
-          <span>04</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/118t9Bkjn0DSffJA2pCgbriD-HoxbuhPk/preview"
-        >
-          <span>05</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/171ZYLabJRWrEomHvLwLxyL3W8ewum3z0/preview"
-        >
-          <span>06</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1NOqj0fbqN6eAiJVHCzV2JoY-WKnKpcZN/preview"
-        >
-          <span>07</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div class="epis" tabindex="0" data-link="">
-          <span>08</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1ZLGomiG2OnxQXPQHsRuXBHMJxfzyYbq4/preview"
-        >
-          <span>09</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1A5XWd_Jh6-kLYeCZWtU2-OFxv7Uc9tZz/preview"
-        >
-          <span>10</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1F9rnUFUmnGHWTxc3AFbIgPqMx08gUd5p/preview"
-        >
-          <span>11</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1TsWUavemGTWlCvHCh0b1H_4ulhLM3wPl/preview"
-        >
-          <span>12</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1uQtYIPz-r9dAJ5oIEbIx3GGsp6JDjf4M/preview"
-        >
-          <span>13</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1ZcgIFAYpGWL9M4ylNtLKRcRVZbL2ttr2/preview"
-        >
-          <span>14</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/17ZcOwJeQ6-chZ1IkNWiSXKYr6ndqeNEJ/preview"
-        >
-          <span>15</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1ZDdEktWQYGsvovVSnFzihD7xkCSqfyAU/preview"
-        >
-          <span>16</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1pA6K7RTEXTOL-sAsvm85XcG0zdPToTrx/preview"
-        >
-          <span>17</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1wryQwSFPsgnEiD1pIOCOzMAPio74LdT6/preview"
-        >
-          <span>18</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1sjrmRCv_S2Q3znJj6b4KwJhiAmJ_F6tn/preview"
-        >
-          <span>19</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/19kzfAhNDC1zreCXs1HG15iHbS3L6FgAQ/preview"
-        >
-          <span>20</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1Nt7iEFNanRS9u0dAgPQWgdpKA64d6zwH/preview"
-        >
-          <span>21</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1h6HHnBRwoob2D4bG4tDwbeirceWVglVP/preview"
-        >
-          <span>22</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1REx6Ff_HqKL-BdhbiNslTLErvRX52ahT/preview"
-        >
-          <span>23</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1zbjdR085m8vqlYkotYqVs1tOKlQsW3gg/preview"
-        >
-          <span>24</span> Vinland Saga - S1<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1MT8LhlOf3guCc6LIpcP-CkQnIMmpA-ED/preview"
-        >
-          <span>01</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1inVj4jdeXzjRipRTXoei203ufrRRQGXk/preview"
-        >
-          <span>02</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1WR0L39xwFtI2wjbh7LXhFR1tzpqu6GFM/preview"
-        >
-          <span>03</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1Xeu6dSedGrJUhAU5OfFDnlgvzS-c29u7/preview"
-        >
-          <span>04</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1JqTHXKu95FOGpTdN1HHnKr8nc-VHv8pe/preview"
-        >
-          <span>05</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/13NT-C-HLhichW9F5HS78xeJGDjhJSCIY/preview"
-        >
-          <span>06</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1icflwVCxtztvl3rTcjZCq0IdTAwdR0cu/preview"
-        >
-          <span>07</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1v6kTVCc-xYNdk-9zuEcuFoTdUct8vHO5/preview"
-        >
-          <span>08</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1P3VcsNU9AgZvgMmEQ19Vz4iwWu-K684m/preview"
-        >
-          <span>09</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1MxZIleHSw-p48PJobsgrvPth_jUpesCX/preview"
-        >
-          <span>10</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/14fs7yXlGfw6HM1Vd3Ve5unlAH6O7D2bG/preview"
-        >
-          <span>11</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1OYsnbgoqdffIrMVvsEFzIe_p2G8-lAVw/preview"
-        >
-          <span>12</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1AnNoMaWZzrjYVP4eKbpe7iCNRZEttQBc/preview"
-        >
-          <span>13</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1KLi8eVjKgV8WrIXES_u0wFMwK5RRBP3P/preview"
-        >
-          <span>14</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1BtFf2dWAh7M6ZhYgS9BppATrCsyD8GsI/preview"
-        >
-          <span>15</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/11bz5tS12m5Y6zBtcR8klaIuT_EN5i27J/preview"
-        >
-          <span>16</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/15MHOZGgsG3nKvzBqTQ4mDRdoWnkpR8Dc/preview"
-        >
-          <span>17</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1InnjH0MYvaqauveMXwui9Q6HbS1R5Pp7/preview"
-        >
-          <span>18</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1hvWwQa00pk4TvI7EL2ETGN0yiH98CW1j/preview"
-        >
-          <span>19</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1hqTS_FU-deDfW6vR8Z4ad77BT45fLrH9/preview"
-        >
-          <span>20</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1copkJBQClj91I_FrYhf6RcK-o7_KZwoz/preview"
-        >
-          <span>21</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1UUEK0m309GenI69Pj39Dr3W7-obS_Chv/preview"
-        >
-          <span>22</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1r9O3edp9O3UArC-Wnx5dKCYmFN1tu6iD/preview"
-        >
-          <span>23</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-        <div
-          class="epis2"
-          tabindex="0"
-          data-link="https://drive.google.com/file/d/1Wn9LcOL8daCHNktiPnWZDwYKTu1Ar9ov/preview"
-        >
-          <span>24</span> Vinland Saga - S2<button>Stream</button>
-        </div>
-      </div>
-    </div>
     <div class="box">
       <div class="frame">
         <iframe
@@ -453,53 +273,459 @@
           frameborder="0"
         ></iframe>
       </div>
-      <div class="actions" tabindex="0">---EXIT---</div>
+      <div class="help">Help Here</div>
+      <div class="actions" tabindex="0">EXIT</div>
     </div>
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-analytics.js";
-      import {
-        getDatabase,
-        set,
-        get,
-        ref,
-        update,
-        remove,
-        onValue,
-      } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-database.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
+    <!-- ///////////////////////////////////////////////////////// -->
+    <div class="abcd">
+      <!-- //////////////////////////////////////////////////////////////////// -->
+      <div class="top">
+        <div class="top-top">
+          <p><span style="color: red">STREAM </span> HUB</p>
+          <button>&nbsp; BACK &nbsp;</button>
+        </div>
+        <!-- Title -->
+        <div class="top-title">Vinland Saga</div>
+        <!-- Description -->
+        <div class="top-description">
+          Following a tragedy, Thorfinn embarks on a journey with the man
+          responsible for it to take his life in a duel as a true and honorable
+          warrior.
+        </div>
+      </div>
+      <!-- //////////////////////////////////////////////////////////////////////// -->
+      <div class="season-block">
+        <!-- Seasons -->
+        <div id="s1">Season 1</div>
+        <div id="s2">Season 2</div>
+      </div>
+      <!-- //////////////////////////////////////////////////////////////////////// -->
 
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyB8rjh6NKrg4Yx3hRLvY9IoUFlKIpbl9vQ",
-        authDomain: "myhomepage-a903f.firebaseapp.com",
-        databaseURL:
-          "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "myhomepage-a903f",
-        storageBucket: "myhomepage-a903f.firebasestorage.app",
-        messagingSenderId: "147182994829",
-        appId: "1:147182994829:web:ed1ab09feb736c7683a9c4",
-        measurementId: "G-5KDSSM53B9",
-      };
+      <!-- /////////////////////////////////////////////////////////////////////// -->
+      <div class="content">
+        <!-- /////////////////////////////////////////////////////////////////////// -->
+        <!-- ////////////////////////// SEASON 1 /////////////////////////////////// -->
+        <!-- /////////////////////////////////////////////////////////////////////// -->
 
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-      const db = getDatabase(
-        app,
-        "https://myhomepage-a903f-default-rtdb.asia-southeast1.firebasedatabase.app/",
-      );
-      let loco = document.querySelector(".actions");
+        <div id="s1s1">
+          <nav
+            data-link="https://drive.google.com/file/d/1v2oMYoqqtZ0CLynMzfx2w6A1qv6DNx5U/preview"
+          >
+            <span>Episode 01 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1Xpkl8GhmnpOTRvIGxXmcF6f4CusyeOAf/preview"
+          >
+            <span>Episode 02 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1yz1YyCMLhkTKfDP_O0ndq52l5ZtFNmJN/preview"
+          >
+            <span>Episode 03 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1MpH7_ZDMcmXbphWsrv_zS64OOB8T1-sU/preview"
+          >
+            <span>Episode 04 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/118t9Bkjn0DSffJA2pCgbriD-HoxbuhPk/preview"
+          >
+            <span>Episode 05 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/171ZYLabJRWrEomHvLwLxyL3W8ewum3z0/preview"
+          >
+            <span>Episode 06 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1NOqj0fbqN6eAiJVHCzV2JoY-WKnKpcZN/preview"
+          >
+            <span>Episode 07 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav data-link="">
+            <span>Episode 08 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1ZLGomiG2OnxQXPQHsRuXBHMJxfzyYbq4/preview"
+          >
+            <span>Episode 09 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1A5XWd_Jh6-kLYeCZWtU2-OFxv7Uc9tZz/preview"
+          >
+            <span>Episode 10 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1F9rnUFUmnGHWTxc3AFbIgPqMx08gUd5p/preview"
+          >
+            <span>Episode 11 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1TsWUavemGTWlCvHCh0b1H_4ulhLM3wPl/preview"
+          >
+            <span>Episode 12 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1uQtYIPz-r9dAJ5oIEbIx3GGsp6JDjf4M/preview"
+          >
+            <span>Episode 13 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1ZcgIFAYpGWL9M4ylNtLKRcRVZbL2ttr2/preview"
+          >
+            <span>Episode 14 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/17ZcOwJeQ6-chZ1IkNWiSXKYr6ndqeNEJ/preview"
+          >
+            <span>Episode 15 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1ZDdEktWQYGsvovVSnFzihD7xkCSqfyAU/preview"
+          >
+            <span>Episode 16 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1pA6K7RTEXTOL-sAsvm85XcG0zdPToTrx/preview"
+          >
+            <span>Episode 17 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1wryQwSFPsgnEiD1pIOCOzMAPio74LdT6/preview"
+          >
+            <span>Episode 18 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1sjrmRCv_S2Q3znJj6b4KwJhiAmJ_F6tn/preview"
+          >
+            <span>Episode 19 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/19kzfAhNDC1zreCXs1HG15iHbS3L6FgAQ/preview"
+          >
+            <span>Episode 20 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1Nt7iEFNanRS9u0dAgPQWgdpKA64d6zwH/preview"
+          >
+            <span>Episode 21 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1h6HHnBRwoob2D4bG4tDwbeirceWVglVP/preview"
+          >
+            <span>Episode 22 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1REx6Ff_HqKL-BdhbiNslTLErvRX52ahT/preview"
+          >
+            <span>Episode 23 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1zbjdR085m8vqlYkotYqVs1tOKlQsW3gg/preview"
+          >
+            <span>Episode 24 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S1<button>
+              Stream
+            </button>
+          </nav>
+        </div>
+
+        <!-- /////////////////////////////////////////////////////////////////////// -->
+        <!-- ////////////////////////// SEASON 2 /////////////////////////////////// -->
+        <!-- /////////////////////////////////////////////////////////////////////// -->
+
+        <div id="s2s2">
+          <nav
+            data-link="https://drive.google.com/file/d/1MT8LhlOf3guCc6LIpcP-CkQnIMmpA-ED/preview"
+          >
+            <span>Episode 01 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1inVj4jdeXzjRipRTXoei203ufrRRQGXk/preview"
+          >
+            <span>Episode 02 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1WR0L39xwFtI2wjbh7LXhFR1tzpqu6GFM/preview"
+          >
+            <span>Episode 03 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1Xeu6dSedGrJUhAU5OfFDnlgvzS-c29u7/preview"
+          >
+            <span>Episode 04 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1JqTHXKu95FOGpTdN1HHnKr8nc-VHv8pe/preview"
+          >
+            <span>Episode 05 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/13NT-C-HLhichW9F5HS78xeJGDjhJSCIY/preview"
+          >
+            <span>Episode 06 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1icflwVCxtztvl3rTcjZCq0IdTAwdR0cu/preview"
+          >
+            <span>Episode 07 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1v6kTVCc-xYNdk-9zuEcuFoTdUct8vHO5/preview"
+          >
+            <span>Episode 08 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1P3VcsNU9AgZvgMmEQ19Vz4iwWu-K684m/preview"
+          >
+            <span>Episode 09 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1MxZIleHSw-p48PJobsgrvPth_jUpesCX/preview"
+          >
+            <span>Episode 10 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/14fs7yXlGfw6HM1Vd3Ve5unlAH6O7D2bG/preview"
+          >
+            <span>Episode 11 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1OYsnbgoqdffIrMVvsEFzIe_p2G8-lAVw/preview"
+          >
+            <span>Episode 12 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1AnNoMaWZzrjYVP4eKbpe7iCNRZEttQBc/preview"
+          >
+            <span>Episode 13 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1KLi8eVjKgV8WrIXES_u0wFMwK5RRBP3P/preview"
+          >
+            <span>Episode 14 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1BtFf2dWAh7M6ZhYgS9BppATrCsyD8GsI/preview"
+          >
+            <span>Episode 15 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/11bz5tS12m5Y6zBtcR8klaIuT_EN5i27J/preview"
+          >
+            <span>Episode 16 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/15MHOZGgsG3nKvzBqTQ4mDRdoWnkpR8Dc/preview"
+          >
+            <span>Episode 17 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1InnjH0MYvaqauveMXwui9Q6HbS1R5Pp7/preview"
+          >
+            <span>Episode 18 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1hvWwQa00pk4TvI7EL2ETGN0yiH98CW1j/preview"
+          >
+            <span>Episode 19 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1hqTS_FU-deDfW6vR8Z4ad77BT45fLrH9/preview"
+          >
+            <span>Episode 20 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1copkJBQClj91I_FrYhf6RcK-o7_KZwoz/preview"
+          >
+            <span>Episode 21 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1UUEK0m309GenI69Pj39Dr3W7-obS_Chv/preview"
+          >
+            <span>Episode 22 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1r9O3edp9O3UArC-Wnx5dKCYmFN1tu6iD/preview"
+          >
+            <span>Episode 23 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+          <nav
+            data-link="https://drive.google.com/file/d/1Wn9LcOL8daCHNktiPnWZDwYKTu1Ar9ov/preview"
+          >
+            <span>Episode 24 </span> &nbsp;&nbsp;&nbsp; Vinland Saga - S2<button>
+              Stream
+            </button>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <script>
+      //////////////////////////////////////////////////////////////////////////////
+      let seasonBlock = document.querySelector(".season-block");
+      seasonBlock.addEventListener("click", (e) => {
+        let id = e.target.id;
+        if (id) {
+          let allSeasons = document.querySelectorAll(".season-block div");
+          allSeasons.forEach((e) => {
+            if (e.id == id) {
+              e.style.borderBottom = "2px solid red";
+              whichSeason(`${e.id}`);
+            } else {
+              e.style.borderBottom = "2px solid transparent";
+            }
+          });
+        }
+        // console.log('clicked on block');
+      });
+      //////////////////////////////////////////////////////////////////////////
+      function whichSeason(snid) {
+        let container = document.querySelectorAll(".content div");
+        let check = document.getElementById(`${snid}${snid}`);
+        if (check) {
+          container.forEach((e) => {
+            // console.log(e.id);
+            if (e.id == `${snid}${snid}`) e.style.display = "flex";
+            else {
+              e.style.display = "none";
+            }
+          });
+        } else {
+          console.log("Season Did not exist!");
+          container.forEach((e) => {
+            e.style.display = "none";
+          });
+        }
+      }
+      whichSeason("s1");
+      ////////////////////////////////////////////////////////////////////////////
+      let loco = document.querySelector(".top-top button");
       loco.addEventListener("click", async () => {
         console.log("clicked");
         let backval = localStorage.getItem("path");
-        if (backval == "main") window.location.href = "index.html";
-        else if (backval == "movies") window.location.href = "movies.html";
+        if (backval == "movies") window.location.href = "movies.html";
         else if (backval == "latest") window.location.href = "latest.html";
         else if (backval == "series") window.location.href = "series.html";
+        else window.location.href = "index.html";
+      });
+      ////////////////////////////////////////////////////////////////////////
+      let eps = document.querySelectorAll("nav");
+      let exit = document.querySelector(".actions");
+      let box = document.querySelector(".box");
+      let abcd = document.querySelector(".abcd");
+      let src = document.getElementById("ifram");
+      let help = document.querySelector(".help");
+      eps.forEach((e) => {
+        e.addEventListener("click", (e) => {
+          // console.log(e.currentTarget.dataset.link);
+          src.src = e.currentTarget.dataset.link;
+          box.style.display = "block";
+          help.innerText = e.currentTarget.innerText;
+          abcd.style.display = "none";
+          const currentNav = event.currentTarget;
+          const clone = currentNav.cloneNode(true);
+          const button = clone.querySelector("button");
+          if (button) button.remove();
+          const cleanText = clone.textContent.replace(/\s+/g, " ").trim();
+          help.innerText = cleanText;
+        });
+      });
+      exit.addEventListener("click", () => {
+        abcd.style.display = "block";
+        src.src = "";
+        box.style.display = "none";
       });
     </script>
   </body>
