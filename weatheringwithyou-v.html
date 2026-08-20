@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Threater" />
+    <meta name="description" content="Watch it!" />
+    <meta name="theme-color" content="black" />
+    <meta property="og:title" content="Threater" />
+    <meta property="og:description" content="Free Watch!" />
+    <meta propert="og:image" content="" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://github.com/brishanksingh7843-design/Logo/blob/main/logo.png?raw=true"
+    />
+    <title>Threater</title>
+    <style>
+      body {
+        background: black;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        width: 100vw;
+      }
+      .box {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        height: 100vh;
+        width: 100vw;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-gutter: stable;
+        position: relative;
+        user-select: none;
+      }
+      .box::-webkit-scrollbar {
+        /* height:5px; */
+        display: none;
+        width: 0.4vw;
+        background: transparent;
+      }
+      .box::-webkit-scrollbar-background {
+        color: red;
+      }
+      .box::-webkit-scrollbar-thumb {
+        /* color:red; */
+        background: red;
+        border-radius: 100px;
+      }
+      .frame {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        border-bottom: 1px solid white;
+      }
+      .actions {
+        height: 10vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: rgba(255, 78, 78, 0.627);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        z-index: 3;
+      }
+      .actions:hover {
+        transition: scale(0.8);
+      }
+      iframe {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="frame">
+        <iframe
+          src="https://drive.google.com/file/d/1bVROdhVJeLABUgru6_R_mFSVCljvxKKt/preview"
+          width="100%"
+          height="100%"
+          allow="autoplay"
+          allowfullscreen
+          id="ifram"
+          frameborder="0"
+        ></iframe>
+      </div>
+      <div class="actions" tabindex="0">---EXIT---</div>
+    </div>
+    <script>
+      let loco = document.querySelector(".actions");
+      loco.addEventListener("click", async () => {
+        console.log("clicked");
+        let backval = localStorage.getItem("path");
+        if (backval == "main") window.location.href = "index.html";
+        else if (backval == "movies") window.location.href = "movies.html";
+        else if (backval == "latest") window.location.href = "latest.html";
+        else if (backval == "series") window.location.href = "series.html";
+      });
+    </script>
+  </body>
+</html>
